@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class RotatePuzzle : MonoBehaviour
 {
-    public PuzzleControl puzzleControl;
+    public RotateController rotateController;
     private void OnMouseDown()
     {
         transform.Rotate(0f, 0f, 90f);
-        puzzleControl.CheckPuzzlePos();
+        rotateController.CheckPuzzlePos();
     }
 }

@@ -3,10 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class AdditionRow
+{
+    public int[] values;
+    public int GetTotal()
+    {
+        int total = 0;
+        foreach (int value in values)
+        {
+            total += value;
+        }
+        return total;
+    }
+}
+
 public class GuessNumber : MonoBehaviour
 {
     public GameObject[] numberText;
     public Button[] answerBoxes;
+
+    [SerializeField] private AdditionRow[] additionRows = new AdditionRow[4];
 
     private int[][] numbersList = new int[3][] { new int[] { 1, 2, 3, 6, // Level 1: Row 1
         5, 6, 7, 18, // Row 2
