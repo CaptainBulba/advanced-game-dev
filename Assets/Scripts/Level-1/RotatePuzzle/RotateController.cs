@@ -17,7 +17,6 @@ public class RotateController : MonoBehaviour
     {
         for (int i = 0; i < puzzles.Length; i++)
         {
-            Debug.Log("checking");
             if (puzzles[i].rotation.z == 0) inCorrectPos++;
         }
         if (inCorrectPos == puzzles.Length) levelController.LaunchMainScreen();

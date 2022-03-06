@@ -21,6 +21,7 @@ public class LevelController : MonoBehaviour
 
     public void LaunchMainScreen()
     {
+        Debug.Log("Returned to main level");
         completedPuzzles++;
         buttonsGroup.SetActive(true);
         background.SetActive(true);
@@ -40,7 +41,7 @@ public class LevelController : MonoBehaviour
 
             // Activate RotatePuzzle
             puzzles[0].SetActive(true);
-         }
+        }
 
         if (actionName == "next_room")
         {
