@@ -12,10 +12,6 @@ public class Chest : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < numbers.Length; i++)
-        {
-            numbers[i].GetComponent<Text>().text = 0.ToString();
-        }
     }
 
     public void ChangeNumber(Text chestText)
@@ -32,10 +28,19 @@ public class Chest : MonoBehaviour
     {
         for (int i = 0; i < numbers.Length; i++)
         {
-            if (int.Parse(numbers[i].text) == correctAnswer[i]) isCorrect++;
+            if (int.Parse(numbers[i].text) == correctAnswer[i])
+            {
+                isCorrect++;
+                Debug.Log(isCorrect);
+            }
+            
         }
 
-        if (isCorrect == 3) levelController.LaunchMainScreen();
+        if (isCorrect == 3)
+        {
+            Debug.Log("You win");
+            levelController.LaunchMainScreen();
+        }
         else isCorrect = 0;
     }
 }
