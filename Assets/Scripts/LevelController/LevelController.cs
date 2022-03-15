@@ -14,6 +14,13 @@ public class LevelController : MonoBehaviour
     private int completedPuzzles = 0;
     private int currentLevel;
 
+    public enum GameActions
+    {
+        RotatePuzzle,
+        NextRoom,
+        GuessNumberPuzzle
+    }
+
     void Start()
     {
         currentLevel = SceneManager.GetActiveScene().buildIndex;
@@ -34,7 +41,7 @@ public class LevelController : MonoBehaviour
 
     public void InitiateButton(string actionName)
     {
-        if(actionName == "rotate_puzzle")
+        if (actionName == GameConstants.puzzleGuessNum)
         {
             buttonsGroup.SetActive(false);
             background.SetActive(false);
@@ -43,7 +50,7 @@ public class LevelController : MonoBehaviour
             puzzles[0].SetActive(true);
         }
 
-        if (actionName == "next_room")
+        if (actionName == GameConstants.actionNextRoom)
         {
             if (completedPuzzles >= TotalPuzzles) SceneManager.LoadScene(currentLevel + 1);
             else Debug.Log("You have not completed all puzzles");            
