@@ -25,10 +25,6 @@ public class GuessNumber : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(firstRound[0].values.Length);
-        //      Debug.Log(numberRows);
-        //    Debug.Log(numberRows[0].values[0]);
-
         levelController = GetComponent<LevelController>();
         LoadTableText();
         LoadAnswerText();
@@ -77,8 +73,6 @@ public class GuessNumber : MonoBehaviour
     
     public void ButtonClick(Button clickedButton)
     {   
-        if (currentRound >= maxLevel) return; // temporary solution before we create scenes
-
         if (clickedButton.GetComponentInChildren<Text>().text == correctAnswers[currentRound].ToString())
         {
             Debug.Log("Correct answer");

@@ -41,13 +41,32 @@ public class LevelController : MonoBehaviour
 
     public void InitiateButton(string actionName)
     {
-        if (actionName == GameConstants.puzzleGuessNum)
+        if (actionName == GameConstants.puzzleRotation)
         {
             buttonsGroup.SetActive(false);
             background.SetActive(false);
 
             // Activate RotatePuzzle
             puzzles[0].SetActive(true);
+        }
+
+        if (actionName == GameConstants.puzzleGuessNum)
+        {
+            buttonsGroup.SetActive(false);
+            background.SetActive(false);
+
+            // Activate RotatePuzzle
+            puzzles[1].SetActive(true);
+
+        }
+
+        if (actionName == GameConstants.puzzleLock)
+        {
+            buttonsGroup.SetActive(false);
+            background.SetActive(false);
+
+            // Activate Guess Puzzle
+            puzzles[2].SetActive(true);
         }
 
         if (actionName == GameConstants.actionNextRoom)
