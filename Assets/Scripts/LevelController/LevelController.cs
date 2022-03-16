@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour
     {
         RotatePuzzle,
         NextRoom,
-        GuessNumberPuzzle
+        GuessNumberPuzzle,
         SliddingPuzzle
     }
 
@@ -42,7 +42,8 @@ public class LevelController : MonoBehaviour
 
     public void InitiateButton(string actionName)
     {
-        if (actionName == GameConstants.puzzleGuessNum)
+        if (actionName == GameConstants.puzzleRotation)
+        //if (actionName == GameConstants.puzzleGuessNum)
         {
             buttonsGroup.SetActive(false);
             background.SetActive(false);
