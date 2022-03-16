@@ -5014,9 +5014,9 @@ MonoBehaviour:
   background: {fileID: 1077328829}
   puzzles:
   - {fileID: 1025072392}
-  - {fileID: 1010686618}
-  - {fileID: 1387356404}
-  buttonsGroup: {fileID: 864753016}
+  - {fileID: 770303677}
+  - {fileID: 1373892465}
+  buttonsGroup: {fileID: 475608752}
   TotalPuzzles: 0
 --- !u!4 &1542732636
 Transform:
