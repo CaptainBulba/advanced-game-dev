@@ -14,6 +14,17 @@ public class LevelController : MonoBehaviour
     private int completedPuzzles = 0;
     private int currentLevel;
 
+<<<<<<< Updated upstream:Assets/Scripts/LevelController.cs
+=======
+    public enum GameActions
+    {
+        RotatePuzzle,
+        NextRoom,
+        GuessNumberPuzzle,
+        SliddingPuzzle
+    }
+
+>>>>>>> Stashed changes:Assets/Scripts/LevelController/LevelController.cs
     void Start()
     {
         currentLevel = SceneManager.GetActiveScene().buildIndex;
@@ -34,7 +45,12 @@ public class LevelController : MonoBehaviour
 
     public void InitiateButton(string actionName)
     {
+<<<<<<< Updated upstream:Assets/Scripts/LevelController.cs
         if(actionName == "rotate_puzzle")
+=======
+        //if (actionName == GameConstants.puzzleGuessNum)
+        if (actionName == GameConstants.puzzleRotation)
+>>>>>>> Stashed changes:Assets/Scripts/LevelController/LevelController.cs
         {
             buttonsGroup.SetActive(false);
             background.SetActive(false);
