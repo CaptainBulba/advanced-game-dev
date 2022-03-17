@@ -24,7 +24,6 @@ public class GuessNumber : MonoBehaviour
 
     void Start()
     {
-        
         levelController = GetComponent<LevelController>();
         LoadTableText();
         LoadAnswerText();
