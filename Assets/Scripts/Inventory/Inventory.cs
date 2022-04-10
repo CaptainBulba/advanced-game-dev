@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject inventoryObject;
+    public GameObject canvasObject;
+    public GameObject toggleButton;
+
     public bool[] isFull;
     public GameObject[] slots;
+
+    private bool displayInventory = true;
+
     public void AddItem(GameObject inventoryItem)
     {
         for (int i = 0; i < slots.Length; i++)
@@ -17,6 +24,29 @@ public class Inventory : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void ToggleInv()
+    {
+        if (displayInventory)
+        {
+            inventoryObject.SetActive(false);
+            toggleButton.transform.SetParent(canvasObject.transform);
+            displayInventory = false;
+
+        }
+        else
+        {
+            inventoryObject.SetActive(true);
+            toggleButton.transform.SetParent(inventoryObject.transform);
+            displayInventory = true;
+        }
+    }
+
+    public void ToggleInvFully()
+    {
+        inventoryObject.SetActive(false);
+        toggleButton.SetActive(false);
     }
 
     public void DeleteItem(int slotNumber)
