@@ -43,10 +43,10 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void ToggleInvFully()
+    public void ToggleInvFully(bool option)
     {
-        inventoryObject.SetActive(false);
-        toggleButton.SetActive(false);
+        inventoryObject.SetActive(option);
+        toggleButton.SetActive(option);
     }
 
     public void DeleteItem(int slotNumber)
