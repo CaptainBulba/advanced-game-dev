@@ -12,10 +12,11 @@ public class GameConstants
     public const string puzzleLock = "lock_puzzle";
 }
 
-    public enum LevelOneActions
+    public enum LevelOneType
     {
         RotatePuzzle,
         LockPuzzle,
         GuessNumberPuzzle,
-        NextRoom
+        //Size
+       // NextRoom
     }

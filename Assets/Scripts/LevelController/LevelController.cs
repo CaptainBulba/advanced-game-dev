@@ -28,19 +28,24 @@ public class LevelController : MonoBehaviour
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         
         //Get the number of puzzles from the enum
-        int numLevelOneActions = System.Enum.GetNames(typeof(LevelOneActions)).Length;
-        
-        /*
+        int numLevelOneTypes = System.Enum.GetNames(typeof(LevelOneType)).Length;
+        //int numLevelOneTypes = (int)LevelOneType.Size;
+
         //Except moving to the next level, Currently it is done manual in the unity editor
-        puzzles = new GameObject[numLevelOneActions-1];
+        puzzles = new GameObject[numLevelOneTypes];
 
-        for (int i = 0; i < numLevelOneActions - 1; i++)
+        for (int i = 0; i < numLevelOneTypes; i++)
         {
-            Debug.Log((LevelOneActions)i);
+           // Debug.Log((LevelOneType)i);
+            //GameObject.FindObjectsOfType
+            //GameObject 
 
-            puzzles[i] = Instantiate("RotatePuzzle", new Vector3(0, 0, 0), Quaternion.identity);
+            var actionName = (LevelOneType)i;
+            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()) as GameObject, this.transform.position, Quaternion.identity);
+            puzzles[i] = puzzle;
+            ////puzzles[i] = 
         }
-        */ 
+        
 
         //Define all buttons within the level
         //puzzleButtons = new Button[numLevelOneActions];
@@ -71,7 +76,6 @@ public class LevelController : MonoBehaviour
 
     public void LaunchPuzzle(int actionIndex)
     {
-        //actionButton.ge
         buttonsGroup.SetActive(false);
         //background.SetActive(false);
 
