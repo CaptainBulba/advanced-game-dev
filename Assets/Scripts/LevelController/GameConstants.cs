@@ -11,3 +11,11 @@ public class GameConstants
     public const string puzzleGuessNum = "number_puzzle";
     public const string puzzleLock = "lock_puzzle";
 }
+
+    public enum LevelOneActions
+    {
+        RotatePuzzle,
+        LockPuzzle,
+        GuessNumberPuzzle,
+        NextRoom
+    }
