@@ -9,7 +9,6 @@ public class Chest : MonoBehaviour
     public int[] correctAnswer;
     public LevelController levelController;
     private int isCorrect = 0;
-    public GameObject winItem;
 
     void Start()
     {
@@ -40,7 +39,6 @@ public class Chest : MonoBehaviour
         if (isCorrect == 3)
         {
             Debug.Log("You win");
-            levelController.GetComponent<Inventory>().AddItem(winItem);
             levelController.LaunchMainScreen();
         }
         else isCorrect = 0;
