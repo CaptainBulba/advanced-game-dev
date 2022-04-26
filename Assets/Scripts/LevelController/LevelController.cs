@@ -16,43 +16,15 @@ public class LevelController : MonoBehaviour
     //Will contain an array of all the buttons within the level
     public Button[] puzzleButtons;
 
-    public int TotalPuzzles;
+    public int totalLevelPuzzles;
 
-    private int completedPuzzles = 0;
-    private int currentLevel;
+    protected int completedPuzzles = 0;
+    protected int currentLevel;
 
 
 
     void Start()
     {
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
-        
-        //Get the number of puzzles from the enum
-        int numLevelOneTypes = System.Enum.GetNames(typeof(LevelOneType)).Length;
-        //int numLevelOneTypes = (int)LevelOneType.Size;
-
-        //Except moving to the next level, Currently it is done manual in the unity editor
-        puzzles = new GameObject[numLevelOneTypes];
-
-        for (int i = 0; i < numLevelOneTypes; i++)
-        {
-           // Debug.Log((LevelOneType)i);
-            //GameObject.FindObjectsOfType
-            //GameObject 
-
-            var actionName = (LevelOneType)i;
-            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()) as GameObject, this.transform.position, Quaternion.identity);
-            puzzles[i] = puzzle;
-            ////puzzles[i] = 
-        }
-        
-
-        //Define all buttons within the level
-        //puzzleButtons = new Button[numLevelOneActions];
-
-        
- 
-        
 
     }
 
@@ -69,54 +41,29 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public void SetupPuzzleButtons()
-    {
-
-    }
-
     public void LaunchPuzzle(int actionIndex)
     {
         buttonsGroup.SetActive(false);
-        //background.SetActive(false);
+        //We can instead also may be change the opacity
+        //background.SetActive(false); 
 
-        // Activate RotatePuzzle
+        // Activate puzzle according to its index
         puzzles[actionIndex].SetActive(true);
 
     }
-    public void InitiateButton(string actionName)
-    {/*
-        if (actionName == GameConstants.puzzleRotation)
-        {
-            buttonsGroup.SetActive(false);
-            //background.SetActive(false);
-
-            // Activate RotatePuzzle
-            puzzles[0].SetActive(true);
-        }
-
-        if (actionName == GameConstants.puzzleGuessNum)
-        {
-            buttonsGroup.SetActive(false);
-            background.SetActive(false);
-
-            // Activate Guess Puzzle
-            puzzles[1].SetActive(true);
-
-        }
-
-        if (actionName == GameConstants.puzzleLock)
-        {
-            buttonsGroup.SetActive(false);
-            background.SetActive(false);
-
-            //Activate Lock
-            puzzles[2].SetActive(true);
-        }
-        */
+    public void NextLevelButton(string actionName)
+    {
         if (actionName == GameConstants.actionNextRoom)
         {
-            if (completedPuzzles >= TotalPuzzles) SceneManager.LoadScene(currentLevel + 1);
-            else Debug.Log("You have not completed all puzzles");            
+            Debug.Log("Completed puzzles so far " + completedPuzzles + " out of #" + totalLevelPuzzles + " in this current level");
+            if (completedPuzzles >= totalLevelPuzzles)
+            {
+                SceneManager.LoadScene(currentLevel + 1);
+            }
+            else
+                Debug.Log("You have not completed all puzzles");            
         }
+        else 
+            Debug.Log("There is something wrong/missing with the button");
     }
 }

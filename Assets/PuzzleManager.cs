@@ -21,7 +21,7 @@ public class PuzzleManager : MonoBehaviour
     private void Start()
     {
         //Get the number of puzzles from the enum
-        int numPuzzles = System.Enum.GetNames(typeof(LevelOneType)).Length;
+        int numPuzzles = System.Enum.GetNames(typeof(LevelOnePuzzles)).Length;
 
          puzzleButtons = new Button[numPuzzles]; 
     }

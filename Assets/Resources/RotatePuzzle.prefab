@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546262648608
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546436520930
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546441187132
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6582813546441187133}
+  - component: {fileID: 130573139958330442}
   m_Layer: 0
   m_Name: RotatePuzzle
   m_TagString: Untagged
@@ -415,6 +416,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &130573139958330442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582813546441187132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992c9207693fdff438e04f1deb7fb9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzles:
+  - {fileID: 6582813546735552866}
+  - {fileID: 6582813548062934954}
+  - {fileID: 6582813546262648609}
+  - {fileID: 6582813546671080986}
+  - {fileID: 6582813546559377056}
+  - {fileID: 6582813547002559932}
+  - {fileID: 6582813546623663599}
+  - {fileID: 6582813547165883257}
+  - {fileID: 6582813547350794240}
+  - {fileID: 6582813547686673860}
+  - {fileID: 6582813548249654719}
+  - {fileID: 6582813546209128537}
+  - {fileID: 6582813546436520931}
+  - {fileID: 6582813547504078419}
+  - {fileID: 6582813546550251756}
+  - {fileID: 6582813547652823146}
 --- !u!1 &6582813546550251747
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546559377063
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546623663598
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546671080985
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813546735552865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813547002559923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813547165883256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813547350794247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,7 +1428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813547504078418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813547652823145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813547686673883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813548062934953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
 --- !u!1 &6582813548249654718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,4 +2043,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6a1a10d7dce424c9162bf8746f67c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateController: {fileID: 0}
+  rotateController: {fileID: 130573139958330442}
