@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2951399595434044390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2951399595434044388}
+  - component: {fileID: 2951399595434044389}
+  m_Layer: 0
+  m_Name: SlidingPuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2951399595434044388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951399595434044390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2951399595434044389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951399595434044390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a7132d542c9734292014e6bc5ac131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxPrefab: {fileID: 8755861402096755832, guid: f1aaf6e609f395a48bbfb89d31963c99, type: 3}
+  sprites:
+  - {fileID: -8506735889323900786, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 5888589322348927482, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -8246695295650224552, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 8410894248705696185, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 8500952370780790516, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -6226498286090505678, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 312967351301300155, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -1316342616119400027, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 255496866392592140, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -1473846967724845052, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -9115396585928510311, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -9005602716035665715, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: -1718244285865808769, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 2487019900452698373, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 8018089613639400461, guid: 9f5433978630b394688ad154b04c1166, type: 3}
+  - {fileID: 0}
