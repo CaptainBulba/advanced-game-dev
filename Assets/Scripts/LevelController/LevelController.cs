@@ -21,8 +21,6 @@ public class LevelController : MonoBehaviour
     protected int completedPuzzles = 0;
     protected int currentLevel;
 
-
-
     void Start()
     {
 
