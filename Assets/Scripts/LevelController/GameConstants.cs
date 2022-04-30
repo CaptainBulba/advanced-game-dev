@@ -20,3 +20,9 @@ public class GameConstants
         LockPuzzle,
         GuessNumberPuzzle,
     }
+
+    public enum LevelTwoPuzzles
+    {
+        SlidingPuzzle
+
+    }

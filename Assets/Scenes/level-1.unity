@@ -916,7 +916,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542732636}
-  - component: {fileID: 1542732635}
   - component: {fileID: 1542732637}
   m_Layer: 0
   m_Name: LevelController
@@ -925,27 +924,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1542732635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542732634}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c30ae066b527ed48a7278950da59a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 1077328829}
-  canvas: {fileID: 0}
-  puzzles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  buttonsGroup: {fileID: 475608752}
-  puzzleButtons: []
-  totalLevelPuzzles: 0
 --- !u!4 &1542732636
 Transform:
   m_ObjectHideFlags: 0
