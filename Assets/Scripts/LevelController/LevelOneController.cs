@@ -21,7 +21,7 @@ public class LevelOneController : LevelController
         {
             //Initiating the puzzle prefabs using the information stored in the LevelOneType enum
             var actionName = (LevelOnePuzzles)i;
-            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()) as GameObject, this.transform.position, Quaternion.identity);
+            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()), transform.position, Quaternion.identity, canvas.transform) as GameObject;
             puzzles[i] = puzzle;
         }
     }

@@ -8,6 +8,8 @@ public class LevelController : MonoBehaviour
 {
     public GameObject background;
 
+    public GameObject canvas;
+
     //Will contain the puzzle prefabs
     public GameObject[] puzzles;
 
