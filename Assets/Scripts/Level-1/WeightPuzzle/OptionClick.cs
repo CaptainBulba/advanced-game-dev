@@ -13,19 +13,17 @@ public class OptionClick : MonoBehaviour
 
     public GameObject[] objectPrefabs; // prefabs to be displayed in the box
 
-    private int currentLevel;
-
-    void Start()
-    {
-        currentLevel = weightPuzzle.GetCurrentLevel();
-        objectText.text = objectWeight[currentLevel] + " kg";    
-    }
 
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            weightPuzzle.AddItem(objectPrefabs[currentLevel], objectWeight[currentLevel]);
+            weightPuzzle.AddItem(objectPrefabs[weightPuzzle.GetCurrentLevel()], objectWeight[weightPuzzle.GetCurrentLevel()]);
         }
+    }
+
+    public void UpdateText()
+    {
+        objectText.text = objectWeight[weightPuzzle.GetCurrentLevel()] + " kg";
     }
 }

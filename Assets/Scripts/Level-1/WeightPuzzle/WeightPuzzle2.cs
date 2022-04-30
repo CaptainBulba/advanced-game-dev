@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeightPuzzle : MonoBehaviour
+public class WeightPuzzle2 : MonoBehaviour
 {
     public GameObject centralObject;
 
@@ -11,7 +11,6 @@ public class WeightPuzzle : MonoBehaviour
     public Text[] boxesTexts; // text on the boxes
     private bool[] isBoxFull = new bool[3]; // are boxes full
     private float[] boxesSize = new float[3]; // what is their size in kg
-    public GameObject[] options; // bottom options
 
     public float[] rightWeight; // sizes of right side
     public Text rightWeightText; // right side text 
@@ -20,7 +19,7 @@ public class WeightPuzzle : MonoBehaviour
     public GameObject correctText; // text to be displayed if puzzle completed successfully. 
     public float displayResultTime; // time to display correct/incorrect message
 
-    private float currentRotation = 0; // angle of main object 
+    private float currentRotation = -45.0f; // angle of main object 
 
     private int currentLevel = 0; // current stage of the puzzle
 
@@ -30,13 +29,6 @@ public class WeightPuzzle : MonoBehaviour
         {
             isBoxFull[i] = false;
         }
-
-        for (int i = 0; i < options.Length; i++)
-        {
-            options[i].GetComponent<OptionClick>().UpdateText();
-        }
-
-        UpdateRightText();
     }
 
     public void AddItem(GameObject item, float boxSize)
@@ -48,17 +40,17 @@ public class WeightPuzzle : MonoBehaviour
                 isBoxFull[i] = true;
                 boxesSize[i] = boxSize;
 
-                UpdateWeightsRotation();
-
                 GameObject instanciatedObject = Instantiate(item, boxes[i].transform, false);
 
                 instanciatedObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, currentRotation);
 
-                IsWeightCorrect();
+                UpdateWeightsRotation();
+//                IsWeightCorrect();
                 break;
             }
         }
     }
+
 
     public void UpdateWeightsRotation()
     {
@@ -98,11 +90,10 @@ public class WeightPuzzle : MonoBehaviour
     private void CleanAllBoxes()
     {
         incorrectText.SetActive(false);
-        correctText.SetActive(false);
 
         for (int i = 0; i < boxes.Length; i++)
         {
-            Destroy(boxes[i].transform.GetChild(0).gameObject);
+            Destroy(boxes[i].transform.GetChild(0));
             boxesSize[i] = 0;
             isBoxFull[i] = false;
         }
@@ -110,11 +101,6 @@ public class WeightPuzzle : MonoBehaviour
         UpdateLeftTexts();
         UpdateRightText();
         UpdateWeightsRotation();
-
-        for (int i = 0; i < options.Length; i++)
-        {
-            options[i].GetComponent<OptionClick>().UpdateText();
-        }
     }
 
     public int GetCurrentLevel()
@@ -124,7 +110,7 @@ public class WeightPuzzle : MonoBehaviour
 
     private void IsWeightCorrect()
     {
-        if (IsBoxesFull())
+        if(IsBoxesFull())
         {
             if (Mathf.Approximately(TotalLeftWeight(), rightWeight[GetCurrentLevel()]))
                 StartCoroutine(DisplayResult(true));
@@ -139,31 +125,24 @@ public class WeightPuzzle : MonoBehaviour
 
         for (int i = 0; i < boxes.Length; i++)
         {
-            if (boxes[i].transform.childCount > 0) fullBoxesNum++;
+            if (boxes[i].transform.GetChild(0) != null) fullBoxesNum++;
         }
 
-        if (fullBoxesNum == boxes.Length)
+        if (fullBoxesNum == (boxes.Length + 1)) 
             return true;
-        else
+        else 
             return false;
     }
 
     IEnumerator DisplayResult(bool value)
     {
-        if (value)
-        {
-            correctText.SetActive(true);
-            currentLevel++;
-        } 
-        else 
-            incorrectText.SetActive(true);
+        if(value) correctText.SetActive(true);
+        if (!value) incorrectText.SetActive(true);
+
 
         yield return new WaitForSeconds(displayResultTime);
 
-        if (currentLevel == rightWeight.Length)
-            Debug.Log("Return to Main");
-        else
-            CleanAllBoxes();
+        currentLevel++;
+        CleanAllBoxes();
     }
 }
-
