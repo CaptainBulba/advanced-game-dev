@@ -10,7 +10,7 @@ public class RotateController : MonoBehaviour
 
     void Start()
     {
-        levelController = GetComponent<LevelController>();    
+        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();    
     }
 
     public void CheckPuzzlePos()

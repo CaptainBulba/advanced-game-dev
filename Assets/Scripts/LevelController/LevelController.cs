@@ -2,28 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
     public GameObject background;
+
+    public GameObject canvas;
+
+    //Will contain the puzzle prefabs
     public GameObject[] puzzles;
+
     public GameObject buttonsGroup;
+    
+    //Will contain an array of all the buttons within the level
+    public Button[] puzzleButtons;
 
-    public int TotalPuzzles;
+    public int totalLevelPuzzles;
 
-    private int completedPuzzles = 0;
-    private int currentLevel;
-
-    public enum GameActions
-    {
-        RotatePuzzle,
-        NextRoom,
-        GuessNumberPuzzle
-    }
+    protected int completedPuzzles = 0;
+    protected int currentLevel;
 
     void Start()
     {
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
+
     }
 
     public void LaunchMainScreen()
@@ -39,40 +41,29 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public void InitiateButton(string actionName)
+    public void LaunchPuzzle(int actionIndex)
     {
-        if (actionName == GameConstants.puzzleRotation)
-        {
-            buttonsGroup.SetActive(false);
-            background.SetActive(false);
+        buttonsGroup.SetActive(false);
+        //We can instead also may be change the opacity
+        //background.SetActive(false); 
 
-            // Activate RotatePuzzle
-            puzzles[0].SetActive(true);
-        }
+        // Activate puzzle according to its index
+        puzzles[actionIndex].SetActive(true);
 
-        if (actionName == GameConstants.puzzleGuessNum)
-        {
-            buttonsGroup.SetActive(false);
-            background.SetActive(false);
-
-            // Activate RotatePuzzle
-            puzzles[1].SetActive(true);
-
-        }
-
-        if (actionName == GameConstants.puzzleLock)
-        {
-            buttonsGroup.SetActive(false);
-            background.SetActive(false);
-
-            // Activate Guess Puzzle
-            puzzles[2].SetActive(true);
-        }
-
+    }
+    public void NextLevelButton(string actionName)
+    {
         if (actionName == GameConstants.actionNextRoom)
         {
-            if (completedPuzzles >= TotalPuzzles) SceneManager.LoadScene(currentLevel + 1);
-            else Debug.Log("You have not completed all puzzles");            
+            Debug.Log("Completed puzzles so far " + completedPuzzles + " out of #" + totalLevelPuzzles + " in this current level");
+            if (completedPuzzles >= totalLevelPuzzles)
+            {
+                SceneManager.LoadScene(currentLevel + 1);
+            }
+            else
+                Debug.Log("You have not completed all puzzles");            
         }
+        else 
+            Debug.Log("There is something wrong/missing with the button");
     }
 }

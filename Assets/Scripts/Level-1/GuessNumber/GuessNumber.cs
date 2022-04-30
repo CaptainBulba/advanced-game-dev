@@ -24,7 +24,7 @@ public class GuessNumber : MonoBehaviour
 
     void Start()
     {
-        levelController = GetComponent<LevelController>();
+        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();
         LoadTableText();
         LoadAnswerText();
     }
@@ -36,7 +36,6 @@ public class GuessNumber : MonoBehaviour
         {
             for (int i = 0; i < numbersRows[j].values.Length; i++) // 4
             {
-                Debug.Log(tableRowsAmount * j + i);
                 numberText[tableRowsAmount * j + i].GetComponentInChildren<Text>().text = numbersRows[j].values[i].ToString();
             }
         }
