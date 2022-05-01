@@ -6,13 +6,12 @@ public class RotatePuzzle : MonoBehaviour
 {
     public RotateController rotateController;
 
-
-
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click");
+            transform.Rotate(0f, 0f, 90f);
+            rotateController.CheckPuzzlePos();
         }
     }
 
