@@ -169,8 +169,9 @@ MonoBehaviour:
   background: {fileID: 694701335}
   canvas: {fileID: 179608124}
   puzzles: []
-  buttonsGroup: {fileID: 0}
-  puzzleButtons: []
+  buttonsGroup: {fileID: 371069286}
+  puzzleButtons:
+  - {fileID: 976473639}
   totalLevelPuzzles: 0
 --- !u!1 &179608124
 GameObject:
@@ -467,7 +468,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 103808916}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LaunchPuzzle
         m_Mode: 3

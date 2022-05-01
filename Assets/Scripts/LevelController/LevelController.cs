@@ -46,9 +46,10 @@ public class LevelController : MonoBehaviour
         buttonsGroup.SetActive(false);
         //We can instead also may be change the opacity
         //background.SetActive(false); 
-
+        
         // Activate puzzle according to its index
         puzzles[actionIndex].SetActive(true);
+        Debug.Log("Launching puzzle ...");
 
     }
     public void NextLevelButton(string actionName)

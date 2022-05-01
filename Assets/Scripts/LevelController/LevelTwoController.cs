@@ -21,7 +21,7 @@ public class LevelTwoController : LevelController
         {
             //Initiating the puzzle LevelTwoPuzzles using the information stored in the LevelTwoPuzzles enum
             var actionName = (LevelTwoPuzzles)i;
-            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()), transform.position, Quaternion.identity, canvas.transform) as GameObject;
+            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()), transform.position, Quaternion.identity) as GameObject;
             puzzles[i] = puzzle;
         }
     }
