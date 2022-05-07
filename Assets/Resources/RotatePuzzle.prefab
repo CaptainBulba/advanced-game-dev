@@ -1855,14 +1855,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6319063602900686532}
   - component: {fileID: 6319063602900686531}
-  - component: {fileID: 8852259195378350607}
+  - component: {fileID: -5127933707984084479}
   m_Layer: 5
   m_Name: RotatePuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6319063602900686532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1927,17 +1927,19 @@ MonoBehaviour:
   - {fileID: 6319063602880988096}
   - {fileID: 6319063601995622617}
   - {fileID: 6319063601637357687}
---- !u!210 &8852259195378350607
-SortingGroup:
+--- !u!114 &-5127933707984084479
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6319063602900686533}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59506f6fb7615bf468f641448db6bfd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabOnCanvas: 0
 --- !u!1 &6319063603035033376
 GameObject:
   m_ObjectHideFlags: 0

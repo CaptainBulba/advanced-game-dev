@@ -7,7 +7,7 @@ public class Chest : MonoBehaviour
 {
     public Text[] numbers;
     public int[] correctAnswer;
-    public LevelController levelController;
+    private LevelController levelController;
     private int isCorrect = 0;
 
     void Start()
