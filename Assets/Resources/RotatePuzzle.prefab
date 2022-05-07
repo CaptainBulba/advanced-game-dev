@@ -882,8 +882,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &577237506026038238
 Transform:
+=======
+--- !u!224 &6319063602900686532
+RectTransform:
+>>>>>>> 785c2aa8caac6dae6fc685b5bd8cfcbc66f09388
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

@@ -29,7 +29,11 @@ public class LevelOneController : LevelController
             if (onCanvas) prefabLocation = canvas.transform;
             else prefabLocation = canvas.transform.parent;
 
+<<<<<<< HEAD
             GameObject puzzle = Instantiate(prefabToLoad, transform.position, Quaternion.identity, prefabLocation);
+=======
+            GameObject puzzle = Instantiate(prefabToLoad, transform.position, Quaternion.identity, prefabLocation) as GameObject;
+>>>>>>> 785c2aa8caac6dae6fc685b5bd8cfcbc66f09388
             puzzles[i] = puzzle;
         }
     }
