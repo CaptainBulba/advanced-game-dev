@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloseItem : MonoBehaviour
 {
-   public void Close() 
+   public void Close()
     {
         Destroy(gameObject.transform.parent.gameObject);
     }
