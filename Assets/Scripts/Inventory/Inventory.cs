@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public bool[] isFull;
     public GameObject[] slots;
     public GameObject closeButton;
 
     private bool invVisability = true;
-
 
     public void AddItem(GameObject inventoryItem)
     {
@@ -25,16 +23,15 @@ public class Inventory : MonoBehaviour
 
     public void ToggleInventory()
     {
-        if (invVisability) closeButton.transform.SetParent(gameObject.transform);
-        else closeButton.transform.SetParent(closeButton.transform.parent.parent);
+        if (invVisability) closeButton.transform.SetParent(closeButton.transform.parent.parent);
+        else closeButton.transform.SetParent(gameObject.transform);
 
-        gameObject.SetActive(invVisability);
         invVisability = !invVisability;
+        gameObject.SetActive(invVisability);
     }
 
     public void DeleteItem(int slotNumber)
     {
         Destroy(slots[slotNumber].transform.GetChild(0));
-        isFull[slotNumber] = false;
     }
 }
