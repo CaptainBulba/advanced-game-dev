@@ -30,6 +30,12 @@ public class Inventory : MonoBehaviour
         gameObject.SetActive(invVisability);
     }
 
+    public void ToggleInventory(bool value)
+    {
+        invVisability = value;
+        gameObject.SetActive(value);
+    }
+
     public void DeleteItem(GameObject prefabToDelete)
     {
         for (int i = 0; i < slots.Length; i++)
