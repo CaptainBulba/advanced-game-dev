@@ -49,13 +49,15 @@ public class LevelController : MonoBehaviour
             GameObject puzzle = Instantiate(prefabToLoad, transform.position, Quaternion.identity, prefabLocation);
 
             puzzles[i] = puzzle;
+
+            puzzle.GetComponent<PrefabSettings>().SetButton(buttonsGroup.transform.GetChild(i).gameObject);
         }
     }
 
     public void LaunchMainScreen()
     {
-        Debug.Log("Returned to main level");
-        completedPuzzles++;
+        Debug.Log("Returned to main");
+
         buttonsGroup.SetActive(true);
         background.SetActive(true);
 
@@ -63,6 +65,22 @@ public class LevelController : MonoBehaviour
         {
             puzzles[i].SetActive(false);
         }
+    }
+
+    public void LaunchMainScreen(Button buttonToDelete)
+    {
+        Debug.Log("Finished the puzzle and returned to main");
+        completedPuzzles++;
+
+        buttonsGroup.SetActive(true);
+        background.SetActive(true);
+
+        for (int i = 0; i < puzzles.Length; i++)
+        {
+            puzzles[i].SetActive(false);
+        }
+
+        Destroy(buttonToDelete);
     }
 
     public void LaunchPuzzle(int actionIndex)
