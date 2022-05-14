@@ -24,7 +24,7 @@ public class GuessNumber : MonoBehaviour
 
     void Start()
     {
-        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
         LoadTableText();
         LoadAnswerText();
     }
