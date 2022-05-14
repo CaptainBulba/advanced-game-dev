@@ -7,9 +7,11 @@ public class Chest : MonoBehaviour
 {
     public Text[] numbers;
     public int[] correctAnswer;
-    private LevelController levelController;
+
     private int isCorrect = 0;
 
+    private LevelController levelController;
+    
     void Start()
     {
         levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();

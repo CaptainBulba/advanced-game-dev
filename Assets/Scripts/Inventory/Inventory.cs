@@ -30,8 +30,12 @@ public class Inventory : MonoBehaviour
         gameObject.SetActive(invVisability);
     }
 
-    public void DeleteItem(int slotNumber)
+    public void DeleteItem(GameObject prefabToDelete)
     {
-        Destroy(slots[slotNumber].transform.GetChild(0));
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if(slots[i].transform.GetChild(0) == prefabToDelete)
+                Destroy(slots[i].transform.GetChild(0));
+        }
     }
 }
