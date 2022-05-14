@@ -12,11 +12,15 @@ public class Chest : MonoBehaviour
 
     private LevelController levelController;
     private GameObject puzzleButton;
-    
+    private Inventory inventory;
+
+    public GameObject itemToDelete;
+
     void Start()
     {
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        inventory = GetComponent<PrefabSettings>().GetInventory();
     }
 
     public void ChangeNumber(Text chestText)
@@ -45,6 +49,7 @@ public class Chest : MonoBehaviour
         {
             Debug.Log("You win");
             levelController.LaunchMainScreen(puzzleButton);
+            inventory.DeleteItem(itemToDelete);
         }
         else isCorrect = 0;
     }

@@ -36,12 +36,18 @@ public class Inventory : MonoBehaviour
         gameObject.SetActive(value);
     }
 
-    public void DeleteItem(GameObject prefabToDelete)
+    public void DeleteItem(GameObject prefabName)
     {
+        Debug.Log(Equals(slots[0].transform.GetChild(0).gameObject, prefabName));
+        Debug.Log(slots[0].transform.GetChild(0).gameObject == prefabName);
+        Debug.Log(slots[0].transform.GetChild(0).gameObject.name);
+
         for (int i = 0; i < slots.Length; i++)
         {
-            if(slots[i].transform.GetChild(0) == prefabToDelete)
-                Destroy(slots[i].transform.GetChild(0));
+            
+
+            if (slots[i].transform.childCount > 0 && ReferenceEquals(slots[i].transform.GetChild(0).gameObject, prefabName))
+                Destroy(slots[i].transform.GetChild(0).gameObject);
         }
     }
 }
