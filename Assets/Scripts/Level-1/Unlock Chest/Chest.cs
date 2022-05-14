@@ -14,7 +14,7 @@ public class Chest : MonoBehaviour
     
     void Start()
     {
-        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();
+        levelController = GameObject.Find("LevelController").GetComponent<LevelController>();
     }
 
     public void ChangeNumber(Text chestText)
