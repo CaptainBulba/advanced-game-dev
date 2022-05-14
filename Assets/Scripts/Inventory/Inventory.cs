@@ -6,17 +6,30 @@ public class Inventory : MonoBehaviour
 {
     public bool[] isFull;
     public GameObject[] slots;
+    public GameObject closeButton;
+
+    private bool invVisability = true;
+
+
     public void AddItem(GameObject inventoryItem)
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (isFull[i] == false)
+            if (slots[i].transform.childCount == 0)
             {
-                isFull[i] = true;
                 Instantiate(inventoryItem, slots[i].transform, false);
                 break;
             }
         }
+    }
+
+    public void ToggleInventory()
+    {
+        if (invVisability) closeButton.transform.SetParent(gameObject.transform);
+        else closeButton.transform.SetParent(closeButton.transform.parent.parent);
+
+        gameObject.SetActive(invVisability);
+        invVisability = !invVisability;
     }
 
     public void DeleteItem(int slotNumber)
