@@ -67,7 +67,7 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public void LaunchMainScreen(Button buttonToDelete)
+    public void LaunchMainScreen(GameObject buttonToDelete)
     {
         Debug.Log("Finished the puzzle and returned to main");
         completedPuzzles++;
@@ -91,7 +91,6 @@ public class LevelController : MonoBehaviour
 
         // Activate puzzle according to its index
         puzzles[actionIndex].SetActive(true);
-
     }
     public void NextLevelButton(string actionName)
     {

@@ -11,10 +11,12 @@ public class Chest : MonoBehaviour
     private int isCorrect = 0;
 
     private LevelController levelController;
+    private GameObject puzzleButton;
     
     void Start()
     {
         levelController = GetComponent<PrefabSettings>().GetLevelController();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
     }
 
     public void ChangeNumber(Text chestText)
@@ -42,7 +44,7 @@ public class Chest : MonoBehaviour
         if (isCorrect == 3)
         {
             Debug.Log("You win");
-            levelController.LaunchMainScreen();
+            levelController.LaunchMainScreen(puzzleButton);
         }
         else isCorrect = 0;
     }
