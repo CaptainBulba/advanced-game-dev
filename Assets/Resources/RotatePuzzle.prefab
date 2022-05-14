@@ -815,6 +815,7 @@ MonoBehaviour:
   - {fileID: 3322678372302419974}
   - {fileID: 3322678374097825175}
   - {fileID: 3322678372945440911}
+  inventoryItem: {fileID: 1356289579578697862, guid: 35f49e23f078ee8488558477303005e2, type: 3}
 --- !u!114 &1712276155000064873
 MonoBehaviour:
   m_ObjectHideFlags: 0
