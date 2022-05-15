@@ -25,3 +25,17 @@ public enum LevelOnePuzzles
     LockPuzzle,
     GuessNumberPuzzle,
 }
+
+public enum LevelTwoPuzzles
+{
+    RotatePuzzle,
+    LockPuzzle,
+    GuessNumberPuzzle,
+}
+
+public enum LevelThreePuzzles
+{
+    RotatePuzzle,
+    LockPuzzle,
+    GuessNumberPuzzle,
+}

@@ -320,7 +320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1542732638}
+      - m_Target: {fileID: 1542732637}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LaunchPuzzle
         m_Mode: 3
@@ -891,7 +891,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1542732638}
+      - m_Target: {fileID: 1542732637}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LaunchPuzzle
         m_Mode: 3
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1542732638}
+      - m_Target: {fileID: 1542732637}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LaunchPuzzle
         m_Mode: 3
@@ -1239,7 +1239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542732636}
-  - component: {fileID: 1542732638}
+  - component: {fileID: 1542732637}
   - component: {fileID: 1542732635}
   m_Layer: 0
   m_Name: LevelController
@@ -1279,7 +1279,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542732638
+--- !u!114 &1542732637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1288,11 +1288,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1542732634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c30ae066b527ed48a7278950da59a4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4559a1b5db079b64bbc74b4d1c0a4159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1077328829}
   canvas: {fileID: 864753016}
+  puzzles: []
   buttonsGroup: {fileID: 475608752}
   puzzleButtons: []
   totalLevelPuzzles: 0
@@ -1453,7 +1454,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1542732638}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LaunchPuzzle
         m_Mode: 3
