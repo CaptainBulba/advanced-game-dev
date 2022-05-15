@@ -7,12 +7,20 @@ public class Chest : MonoBehaviour
 {
     public Text[] numbers;
     public int[] correctAnswer;
-    public LevelController levelController;
+
     private int isCorrect = 0;
+
+    private LevelController levelController;
+    private GameObject puzzleButton;
+    private Inventory inventory;
+
+    public GameObject itemToDelete;
 
     void Start()
     {
-        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        inventory = GetComponent<PrefabSettings>().GetInventory();
     }
 
     public void ChangeNumber(Text chestText)
@@ -40,7 +48,8 @@ public class Chest : MonoBehaviour
         if (isCorrect == 3)
         {
             Debug.Log("You win");
-            levelController.LaunchMainScreen();
+            levelController.LaunchMainScreen(puzzleButton);
+            inventory.DeleteItem(itemToDelete);
         }
         else isCorrect = 0;
     }

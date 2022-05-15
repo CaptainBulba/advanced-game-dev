@@ -15,6 +15,7 @@ public class GuessNumber : MonoBehaviour
     private NumbersRow[] numbersRows;
 
     private LevelController levelController;
+    private GameObject puzzleButton;
 
     private int[] correctAnswers = new int[] { 42, 12, 64 }; // Answers for level 1, 2, 3
 
@@ -24,7 +25,8 @@ public class GuessNumber : MonoBehaviour
 
     void Start()
     {
-        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
         LoadTableText();
         LoadAnswerText();
     }
@@ -81,7 +83,7 @@ public class GuessNumber : MonoBehaviour
                 LoadTableText();
                 LoadAnswerText();
             }
-            else levelController.LaunchMainScreen();
+            else levelController.LaunchMainScreen(puzzleButton);
         }
         else Debug.Log("Incorrect Answer");
     } 

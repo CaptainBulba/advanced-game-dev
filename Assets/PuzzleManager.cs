@@ -25,7 +25,4 @@ public class PuzzleManager : MonoBehaviour
 
          puzzleButtons = new Button[numPuzzles]; 
     }
-
-
-
 }

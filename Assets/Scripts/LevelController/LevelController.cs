@@ -11,7 +11,7 @@ public class LevelController : MonoBehaviour
     public GameObject canvas;
 
     //Will contain the puzzle prefabs
-    public GameObject[] puzzles;
+    private GameObject[] puzzles;
 
     public GameObject buttonsGroup;
     
@@ -25,13 +25,39 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("You are in level " + currentLevel + 1);
 
+        //Get the number of puzzles from the enum
+        totalLevelPuzzles = System.Enum.GetNames(typeof(LevelOnePuzzles)).Length;
+
+        //Except moving to the next level, Currently it is done manual in the unity editor
+        puzzles = new GameObject[totalLevelPuzzles];
+
+        for (int i = 0; i < totalLevelPuzzles; i++)
+        {
+            //Initiating the puzzle prefabs using the information stored in the LevelOneType enum
+            var actionName = (LevelOnePuzzles)i;
+
+            GameObject prefabToLoad = Resources.Load(actionName.ToString()) as GameObject;
+            bool onCanvas = prefabToLoad.GetComponent<PrefabSettings>().PrefabOnCanvas;
+
+            Transform prefabLocation;
+            if (onCanvas) prefabLocation = canvas.transform;
+            else prefabLocation = canvas.transform.parent;
+
+            GameObject puzzle = Instantiate(prefabToLoad, transform.position, Quaternion.identity, prefabLocation);
+
+            puzzles[i] = puzzle;
+
+            puzzle.GetComponent<PrefabSettings>().SetButton(buttonsGroup.transform.GetChild(i).gameObject);
+        }
     }
 
     public void LaunchMainScreen()
     {
-        Debug.Log("Returned to main level");
-        completedPuzzles++;
+        Debug.Log("Returned to main");
+
         buttonsGroup.SetActive(true);
         background.SetActive(true);
 
@@ -39,6 +65,22 @@ public class LevelController : MonoBehaviour
         {
             puzzles[i].SetActive(false);
         }
+    }
+
+    public void LaunchMainScreen(GameObject buttonToDelete)
+    {
+        Debug.Log("Finished the puzzle and returned to main");
+        completedPuzzles++;
+
+        buttonsGroup.SetActive(true);
+        background.SetActive(true);
+
+        for (int i = 0; i < puzzles.Length; i++)
+        {
+            puzzles[i].SetActive(false);
+        }
+
+        Destroy(buttonToDelete);
     }
 
     public void LaunchPuzzle(int actionIndex)
@@ -49,7 +91,6 @@ public class LevelController : MonoBehaviour
 
         // Activate puzzle according to its index
         puzzles[actionIndex].SetActive(true);
-
     }
     public void NextLevelButton(string actionName)
     {
