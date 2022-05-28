@@ -24,6 +24,13 @@ public class LevelController : MonoBehaviour
     protected int completedPuzzles = 0;
     protected int currentLevel;
 
+    private Inventory inventory;
+
+    void OnEnable()
+    {
+        inventory = GetComponent<Inventory>();
+    }
+
     public void LaunchMainScreen()
     {
         Debug.Log("Returned to main");
@@ -35,6 +42,8 @@ public class LevelController : MonoBehaviour
         {
             puzzles[i].SetActive(false);
         }
+
+        inventory.ToggleInventory(true);
     }
 
     public void LaunchMainScreen(GameObject buttonToDelete)
@@ -50,12 +59,16 @@ public class LevelController : MonoBehaviour
             puzzles[i].SetActive(false);
         }
 
+        inventory.ToggleInventory(true);
+
         Destroy(buttonToDelete);
     }
 
     public void LaunchPuzzle(int actionIndex)
     {
         buttonsGroup.SetActive(false);
+
+        inventory.ToggleInventory(false);
         //We can instead also may be change the opacity
         //background.SetActive(false); 
 
