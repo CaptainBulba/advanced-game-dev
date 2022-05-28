@@ -15,6 +15,10 @@ public class GuessNumber : MonoBehaviour
     private NumbersRow[] numbersRows;
 
     private LevelController levelController;
+
+    private Inventory inventory;
+    public GameObject inventoryItem;
+    
     private GameObject puzzleButton;
 
     private int[] correctAnswers = new int[] { 42, 12, 64 }; // Answers for level 1, 2, 3
@@ -27,6 +31,7 @@ public class GuessNumber : MonoBehaviour
     {
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        inventory = GetComponent<PrefabSettings>().GetInventory();
         LoadTableText();
         LoadAnswerText();
     }
@@ -83,7 +88,11 @@ public class GuessNumber : MonoBehaviour
                 LoadTableText();
                 LoadAnswerText();
             }
-            else levelController.LaunchMainScreen(puzzleButton);
+            else
+            {
+                levelController.LaunchMainScreen(puzzleButton);
+                inventory.AddItem(inventoryItem);
+            }
         }
         else Debug.Log("Incorrect Answer");
     } 

@@ -8,7 +8,7 @@ public class ClickOnItem : MonoBehaviour
 
     public void UseItem()
     {
-        Instantiate(displayObject, gameObject.transform, false);
+        Instantiate(displayObject, gameObject.transform.parent.parent, false);
     }
 }
 

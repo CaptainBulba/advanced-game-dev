@@ -7,11 +7,11 @@ public class RotateController : MonoBehaviour
     public Transform[] puzzles;
     private int inCorrectPos;
 
-    public GameObject inventoryItem;
-
     private LevelController levelController;
     private GameObject puzzleButton;
+
     private Inventory inventory;
+    public GameObject inventoryItem;
 
     void Start()
     {
