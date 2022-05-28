@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject inventory;
     public GameObject[] slots;
     public GameObject closeButton;
 
@@ -24,16 +25,16 @@ public class Inventory : MonoBehaviour
     public void ToggleInventory()
     {
         if (invVisability) closeButton.transform.SetParent(closeButton.transform.parent.parent);
-        else closeButton.transform.SetParent(gameObject.transform);
+        else closeButton.transform.SetParent(inventory.transform);
 
         invVisability = !invVisability;
-        gameObject.SetActive(invVisability);
+        inventory.SetActive(invVisability);
     }
 
     public void ToggleInventory(bool value)
     {
         invVisability = value;
-        gameObject.SetActive(value);
+        inventory.SetActive(value);
     }
 
     public void DeleteItem(GameObject prefabName)
