@@ -427,7 +427,7 @@ MonoBehaviour:
   - {fileID: 4157777501531183942}
   - {fileID: 4157777501363150704}
   correctAnswer: 010000000200000003000000
-  itemToDelete: {fileID: 1356289579578697862, guid: 35f49e23f078ee8488558477303005e2, type: 3}
+  mandatoryItemID: 1
 --- !u!114 &-1369740342637742819
 MonoBehaviour:
   m_ObjectHideFlags: 0

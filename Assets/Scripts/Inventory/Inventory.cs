@@ -37,6 +37,16 @@ public class Inventory : MonoBehaviour
         inventory.SetActive(value);
     }
 
+    public bool SearchItem(int itemID)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].transform.childCount > 0 && slots[i].gameObject.transform.GetChild(0).GetComponent<Item>().itemID == itemID)
+                return true;
+        }
+        return false;
+    }
+
     public void DeleteItem(GameObject prefabName)
     {
         Debug.Log(Equals(slots[0].transform.GetChild(0).gameObject, prefabName));

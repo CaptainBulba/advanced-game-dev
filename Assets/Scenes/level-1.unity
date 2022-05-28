@@ -490,7 +490,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1542732635}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
         m_MethodName: ToggleInventory
         m_Mode: 1
@@ -1260,6 +1260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435aaaf9d3a718a42ad1246d01ced6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 299791195}
   slots:
   - {fileID: 1919488808}
   - {fileID: 1488010827}

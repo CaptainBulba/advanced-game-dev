@@ -14,13 +14,23 @@ public class Chest : MonoBehaviour
     private GameObject puzzleButton;
     private Inventory inventory;
 
-    public GameObject itemToDelete;
+    public int mandatoryItemID;
 
     void Start()
     {
-        levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
+    }
+
+    void OnEnable()
+    {
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
         inventory = GetComponent<PrefabSettings>().GetInventory();
+
+        if (!inventory.SearchItem(mandatoryItemID))
+        {
+            Debug.Log("You don't have necessary item");
+            levelController.LaunchMainScreen();
+        }
     }
 
     public void ChangeNumber(Text chestText)
@@ -42,14 +52,12 @@ public class Chest : MonoBehaviour
                 isCorrect++;
                 Debug.Log(isCorrect);
             }
-            
         }
 
         if (isCorrect == 3)
         {
             Debug.Log("You win");
             levelController.LaunchMainScreen(puzzleButton);
-            inventory.DeleteItem(itemToDelete);
         }
         else isCorrect = 0;
     }
