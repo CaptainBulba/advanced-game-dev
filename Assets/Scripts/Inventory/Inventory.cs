@@ -47,17 +47,11 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void DeleteItem(GameObject prefabName)
+    public void DeleteItem(int itemID)
     {
-        Debug.Log(Equals(slots[0].transform.GetChild(0).gameObject, prefabName));
-        Debug.Log(slots[0].transform.GetChild(0).gameObject == prefabName);
-        Debug.Log(slots[0].transform.GetChild(0).gameObject.name);
-
         for (int i = 0; i < slots.Length; i++)
         {
-            
-
-            if (slots[i].transform.childCount > 0 && ReferenceEquals(slots[i].transform.GetChild(0).gameObject, prefabName))
+            if (slots[i].transform.childCount > 0 && slots[i].gameObject.transform.GetChild(0).GetComponent<Item>().itemID == itemID)
                 Destroy(slots[i].transform.GetChild(0).gameObject);
         }
     }
