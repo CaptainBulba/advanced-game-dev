@@ -41,6 +41,8 @@ public class BottleController : MonoBehaviour
     Vector3 startPosition;
     Vector3 endPosition;
 
+    public LineRenderer lineRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -190,6 +192,19 @@ public class BottleController : MonoBehaviour
 
             if (fillAmounts[numberOfColorsInBottle] > FillAmountCurve.Evaluate(angleValue))
             {
+                //Activate the line renderer during the filling operation
+                if(lineRenderer.enabled == false)
+                {
+                    //set line render colors
+                    lineRenderer.startColor = topColor;
+                    lineRenderer.endColor = topColor;
+
+                    //set the positions 
+                    lineRenderer.SetPosition(0, selectedRotationPoint.position);
+                    lineRenderer.SetPosition(1, selectedRotationPoint.position - Vector3.up * 1.45f);
+
+                    lineRenderer.enabled = true;
+                }
                 bottleMaskSprite.material.SetFloat("_FillAmount", FillAmountCurve.Evaluate(angleValue));
 
                 //Use the difference between fill amount curve
@@ -213,6 +228,9 @@ public class BottleController : MonoBehaviour
         numberOfColorsInBottle -= numberOfColorsToTransfer;
         //Update the number of colors for the second bottle
         bottleControllerRef.numberOfColorsInBottle += numberOfColorsToTransfer;
+
+        //disable line renderer
+        lineRenderer.enabled = false;
 
         StartCoroutine(RotateBottleBack());
     }
