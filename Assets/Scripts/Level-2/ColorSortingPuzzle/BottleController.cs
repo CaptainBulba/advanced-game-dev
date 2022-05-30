@@ -31,10 +31,23 @@ public class BottleController : MonoBehaviour
     //Temporary variable
     public bool justThisBottle = false;
 
+    public Transform leftRotationPoint;
+    public Transform rightRotationPoint;
+    private Transform selectedRotationPoint;
+
+    private float directionMultiplier = 1.0f;
+
+    Vector3 originalPosition;
+    Vector3 startPosition;
+    Vector3 endPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         bottleMaskSprite.material.SetFloat("_FillAmount", fillAmounts[numberOfColorsInBottle]);
+
+        originalPosition = transform.position;
+
         UpdateColorsOnShader();
         UpdateTopColorValues();
     }
@@ -49,6 +62,9 @@ public class BottleController : MonoBehaviour
             //Check if the second bottle has space and both colors are matching
             if(bottleControllerRef.FillBottleCheck(topColor))
             {
+                //Determine the direction of pouring
+                ChooseRotationPointAndDirection();
+
                 numberOfColorsToTransfer = Mathf.Min(numberOfTopColorLayers, 4 - bottleControllerRef.numberOfColorsInBottle);
 
                 //Update the value of the bottle color array
@@ -64,6 +80,82 @@ public class BottleController : MonoBehaviour
             CalculateRotationIndex(4 - bottleControllerRef.numberOfColorsInBottle);
             StartCoroutine(RotateBottle());
         }
+    }
+
+    public void StartColorTransfer()
+    {
+        //Determine the direction of pouring
+        ChooseRotationPointAndDirection();
+
+        numberOfColorsToTransfer = Mathf.Min(numberOfTopColorLayers, 4 - bottleControllerRef.numberOfColorsInBottle);
+
+        //Update the value of the bottle color array
+        for (int i = 0; i < numberOfColorsToTransfer; i++)
+        {
+            //check the index of the second bottle top based on the current number of colors inside it and add new colors on top of it
+            bottleControllerRef.bottleColors[bottleControllerRef.numberOfColorsInBottle + i] = topColor;
+        }
+        //Reflect the color changes to screen through the shader graph
+        bottleControllerRef.UpdateColorsOnShader();
+
+        CalculateRotationIndex(4 - bottleControllerRef.numberOfColorsInBottle);
+
+        //Adjust order in layers to fix overalapping between the bottles during transfer
+        transform.GetComponent<SpriteRenderer>().sortingOrder += 2;
+        bottleMaskSprite.sortingOrder += 2;
+
+        StartCoroutine(MoveBottle());
+    }
+
+    IEnumerator MoveBottle()
+    {
+        startPosition = transform.position;
+        
+        if(selectedRotationPoint == leftRotationPoint)
+        {
+            endPosition = bottleControllerRef.rightRotationPoint.position;
+        }
+        else
+        {
+            endPosition = bottleControllerRef.leftRotationPoint.position;
+        }
+
+        float t = 0;
+
+        while(t<=1)
+        {
+            transform.position = Vector3.Lerp(startPosition, endPosition, t);
+            t += Time.deltaTime * 2;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.position = endPosition;
+
+        StartCoroutine(RotateBottle());
+
+    }
+
+    IEnumerator MoveBottleBack()
+    {
+        startPosition = transform.position;
+        endPosition = originalPosition;
+
+        float t = 0;
+
+        while (t <= 1)
+        {
+            transform.position = Vector3.Lerp(startPosition, endPosition, t);
+            t += Time.deltaTime * 2;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.position = endPosition;
+
+        //Change the order back to its original value 
+        transform.GetComponent<SpriteRenderer>().sortingOrder -= 2;
+        bottleMaskSprite.sortingOrder -= 2;
     }
 
     //To update colors
@@ -88,9 +180,12 @@ public class BottleController : MonoBehaviour
         while (t < timeToRotate)
         {
             lerpValue = t / timeToRotate;
-            angleValue = Mathf.Lerp(0.0f, rotationValues[rotationIndex], lerpValue);
+            //Adjust the angle to rotate
+            angleValue = Mathf.Lerp(0.0f, directionMultiplier * rotationValues[rotationIndex], lerpValue);
               
-            transform.eulerAngles = new Vector3(0,0,angleValue);
+            //rotate bottle around the points we created
+            transform.RotateAround(selectedRotationPoint.position, Vector3.forward, lastAngleValue - angleValue);
+
             bottleMaskSprite.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
 
             if (fillAmounts[numberOfColorsInBottle] > FillAmountCurve.Evaluate(angleValue))
@@ -109,8 +204,8 @@ public class BottleController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        angleValue = rotationValues[rotationIndex];
-        transform.eulerAngles = new Vector3(0, 0, angleValue);
+        angleValue = directionMultiplier * rotationValues[rotationIndex];
+        
         bottleMaskSprite.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
         bottleMaskSprite.material.SetFloat("_FillAmount", FillAmountCurve.Evaluate(angleValue));
 
@@ -128,16 +223,17 @@ public class BottleController : MonoBehaviour
         float t = 0;
         float lerpValue;
         float angleValue;
+        float lastAngleValue = directionMultiplier * rotationValues[rotationIndex];
 
         while (t < timeToRotate)
         {
             lerpValue = t / timeToRotate;
-            angleValue = Mathf.Lerp(rotationValues[rotationIndex], 0.0f, lerpValue);
+            angleValue = Mathf.Lerp(directionMultiplier * rotationValues[rotationIndex], 0.0f, lerpValue);
 
-            transform.eulerAngles = new Vector3(0, 0, angleValue);
+            transform.RotateAround(selectedRotationPoint.position, Vector3.forward, lastAngleValue - angleValue);
             bottleMaskSprite.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
 
-
+            lastAngleValue = angleValue;
             t += Time.deltaTime;
 
             yield return new WaitForEndOfFrame();
@@ -148,9 +244,12 @@ public class BottleController : MonoBehaviour
         angleValue = 0.0f;
         transform.eulerAngles = new Vector3(0, 0, angleValue);
         bottleMaskSprite.material.SetFloat("_SARM", ScaleAndRotationMultiplierCurve.Evaluate(angleValue));
+
+        StartCoroutine(MoveBottleBack());
+
     }
 
-    void UpdateTopColorValues()
+    public void UpdateTopColorValues()
     {
         if(numberOfColorsInBottle !=0)
         {
@@ -204,7 +303,7 @@ public class BottleController : MonoBehaviour
 
     //check if same colors are on top of each bottle
     //And if second bottle is empty and how much we can add on top of it
-    private bool FillBottleCheck(Color colorToCheck)
+    public bool FillBottleCheck(Color colorToCheck)
     {
         //if the bottle is empty return true
         if(numberOfColorsInBottle == 0)
@@ -239,5 +338,19 @@ public class BottleController : MonoBehaviour
     {
         bottleMaskSprite.material.SetFloat("_FillAmount", bottleMaskSprite.material.GetFloat("_FillAmount") + fillAmountToAdd);
 
+    }
+    
+    private void ChooseRotationPointAndDirection()
+    {
+        if(transform.position.x > bottleControllerRef.transform.position.x)
+        {
+            selectedRotationPoint = leftRotationPoint;
+            directionMultiplier = -1.0f;
+        }
+        else
+        {
+            selectedRotationPoint = rightRotationPoint;
+            directionMultiplier = 1.0f;
+        }
     }
 }
