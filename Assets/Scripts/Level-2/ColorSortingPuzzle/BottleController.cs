@@ -116,6 +116,8 @@ public class BottleController : MonoBehaviour
 
         //Update the number of colors after rotation based on the actual transfered number
         numberOfColorsInBottle -= numberOfColorsToTransfer;
+        //Update the number of colors for the second bottle
+        bottleControllerRef.numberOfColorsInBottle += numberOfColorsToTransfer;
 
         StartCoroutine(RotateBottleBack());
     }
