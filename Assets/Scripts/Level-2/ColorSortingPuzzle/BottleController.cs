@@ -377,13 +377,11 @@ public class BottleController : MonoBehaviour
             this.GetComponent<BoxCollider2D>().enabled = false;
 
             //Trigger an event to register to the main puzzle controller
-            Debug.Log("Invoking Event from Is Bottle complete");
+            Debug.Log("Invoking Event from IsBottlecomplete Function");
             OnBottleComplete?.Invoke();
 
-            //return true;
         }
-        //else
-          //  return false;
+
     }
     //This updates the rotation index based on the number of empty spaces the second bottle can accomodate 
     private void CalculateRotationIndex(int numberOfEmptySpacesInBottle)
