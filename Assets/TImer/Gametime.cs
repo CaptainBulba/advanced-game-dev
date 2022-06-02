@@ -4,41 +4,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class Gametime : MonoBehaviour
+public class GameTime : MonoBehaviour
 {
     public float timer = 60;
-    bool switchScene = false;
-    public Text timerbox;
-    
+    public Text timerText;
 
+    public static GameTime Instance { get; private set; }
 
-    // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
         DisplayTime(timer);
 
         //codition for switch scene
-        if (timer <= 50 && !switchScene)
+        if (timer <= 1)
         {
-            switchScene = true;
-            SceneManager.LoadScene("Scene 2");
+            Debug.Log("Gameover scene");
         }
         
         //timerbox.text = timer.ToString();
     }
+
     void DisplayTime(float timefordisplay)
     {
         float minute = Mathf.FloorToInt(timefordisplay / 60);
         float second = Mathf.FloorToInt(timefordisplay % 60);
 
-        timerbox.text = string.Format("{0:00}:{1:00}", minute, second);
+        timerText.text = string.Format("{0:00}:{1:00}", minute, second);
     }
 }
