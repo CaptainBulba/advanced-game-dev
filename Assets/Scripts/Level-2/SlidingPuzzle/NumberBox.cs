@@ -18,6 +18,8 @@ public class NumberBox : MonoBehaviour
     {
         this.index = index;
         this.GetComponent<SpriteRenderer>().sprite = sprite;
+        this.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
         UpdatePos(i, j);
         //To save the current box we have clicked
         this.swapFunc = swapFunc;

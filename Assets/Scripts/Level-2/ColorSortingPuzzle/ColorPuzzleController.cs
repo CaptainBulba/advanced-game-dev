@@ -7,12 +7,21 @@ public class ColorPuzzleController : MonoBehaviour
     public BottleController firstBottle;
     public BottleController secondBottle;
 
+    const int countWinCondition = 2;
+    
+    [SerializeField]
+    int countCompleteBottles = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
+    private void OnEnable()
+    {
+        BottleController.OnBottleComplete += UpdateBottleComplete;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -52,10 +61,23 @@ public class ColorPuzzleController : MonoBehaviour
                             firstBottle.UpdateTopColorValues();
                             secondBottle.UpdateTopColorValues();
 
-                            //check if can fill second bottle with first
+                            //check if we can fill second bottle with first
                             if(secondBottle.FillBottleCheck(firstBottle.topColor))
                             {
                                 firstBottle.StartColorTransfer();
+
+                                Debug.Log("After color transfer:");
+                                Debug.Log("Number of top colors in first bottle is " + firstBottle.numberOfTopColorLayers);
+                                Debug.Log("Number of top colors in second bottle is " + secondBottle.numberOfTopColorLayers);
+
+                                //Update again
+                                //secondBottle.UpdateTopColorValues();
+                                /*
+                                                                if (secondBottle.IsBottleComplete())
+                                                                {
+                                                                    countCompleteBottles++;
+                                                                    Debug.Log("Completed " + countCompleteBottles + " bottles so far");
+                                                                }*/
                             }
 
                             //After finishing the color transfer Reset the selections
@@ -68,4 +90,11 @@ public class ColorPuzzleController : MonoBehaviour
             }
         }
     }
+    
+    void UpdateBottleComplete()
+    {
+        countCompleteBottles++;
+        Debug.Log("Color Puzzle Controller, current completed bottles " + countCompleteBottles);
+    }
+
 }

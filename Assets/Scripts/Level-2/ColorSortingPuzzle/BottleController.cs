@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BottleController : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class BottleController : MonoBehaviour
     Vector3 endPosition;
 
     public LineRenderer lineRenderer;
+    public static UnityAction OnBottleComplete;
 
     // Start is called before the first frame update
     void Start()
@@ -158,6 +160,9 @@ public class BottleController : MonoBehaviour
         //Change the order back to its original value 
         transform.GetComponent<SpriteRenderer>().sortingOrder -= 2;
         bottleMaskSprite.sortingOrder -= 2;
+
+        Debug.Log("Finished rotation operation thank you!");
+        
     }
 
     //To update colors
@@ -231,7 +236,8 @@ public class BottleController : MonoBehaviour
 
         //disable line renderer
         lineRenderer.enabled = false;
-
+        
+        
         StartCoroutine(RotateBottleBack());
     }
 
@@ -257,7 +263,15 @@ public class BottleController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        UpdateTopColorValues();
+        this.UpdateTopColorValues();
+        
+        //Update the color count of the second bottle
+        bottleControllerRef.UpdateTopColorValues();
+
+        //Check if the second bottle is full send a trigger and deactivate
+        bottleControllerRef.IsBottleComplete();
+
+        UpdateRotationIndex();
 
         angleValue = 0.0f;
         transform.eulerAngles = new Vector3(0, 0, angleValue);
@@ -288,7 +302,11 @@ public class BottleController : MonoBehaviour
 
                         if (bottleColors[1].Equals(bottleColors[0]))
                         {
+                            //All colors inside bottle are matching
                             numberOfTopColorLayers = 4;
+                            
+                            
+                            
                         }
                     }
                 }
@@ -314,9 +332,14 @@ public class BottleController : MonoBehaviour
                 }
             }
 
-            //now when we rotate we need to empty top colors by adjusting the value of rotation index
-            rotationIndex = 3 - (numberOfColorsInBottle - numberOfTopColorLayers);
+            
         }
+    }
+
+    private void UpdateRotationIndex()
+    {
+        //now when we rotate we need to empty top colors by adjusting the value of rotation index
+        rotationIndex = 3 - (numberOfColorsInBottle - numberOfTopColorLayers);
     }
 
     //check if same colors are on top of each bottle
@@ -345,6 +368,23 @@ public class BottleController : MonoBehaviour
         }
     }
 
+    //Check if the bottle if complete with the same color
+    public void IsBottleComplete()
+    {
+        if (numberOfTopColorLayers == 4)
+        {
+            //Disable the collider when the bottle is full
+            this.GetComponent<BoxCollider2D>().enabled = false;
+
+            //Trigger an event to register to the main puzzle controller
+            Debug.Log("Invoking Event from Is Bottle complete");
+            OnBottleComplete?.Invoke();
+
+            //return true;
+        }
+        //else
+          //  return false;
+    }
     //This updates the rotation index based on the number of empty spaces the second bottle can accomodate 
     private void CalculateRotationIndex(int numberOfEmptySpacesInBottle)
     {
