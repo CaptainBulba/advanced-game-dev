@@ -14,6 +14,7 @@ public class GameConstants
       */
 }
 
+
 public enum Items
 {
     Note
@@ -28,9 +29,9 @@ public enum LevelOnePuzzles
 
 public enum LevelTwoPuzzles
 {
-    RotatePuzzle,
-    LockPuzzle,
-    GuessNumberPuzzle,
+    SlidingPuzzle,
+    ColorSortingPuzzle
+
 }
 
 public enum LevelThreePuzzles
@@ -39,3 +40,4 @@ public enum LevelThreePuzzles
     LockPuzzle,
     GuessNumberPuzzle,
 }
+
