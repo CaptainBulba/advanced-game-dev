@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level-1.unity
     guid: 848c1d08ccc2fbb44918e4788a1c688f
+  - enabled: 1
+    path: Assets/Scenes/15puzzle.unity
+    guid: 6971ee71e3aee21489f713f4decc45c9
+  - enabled: 0
+    path: Assets/Scenes/Wordpuzzle.unity
+    guid: 359fda62b819ae0498ac1dadf28548dd
   m_configObjects: {}

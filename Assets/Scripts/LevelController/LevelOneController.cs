@@ -21,9 +21,19 @@ public class LevelOneController : LevelController
         {
             //Initiating the puzzle prefabs using the information stored in the LevelOneType enum
             var actionName = (LevelOnePuzzles)i;
-            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()), transform.position, Quaternion.identity, canvas.transform) as GameObject;
+
+            GameObject prefabToLoad = Resources.Load(actionName.ToString()) as GameObject;
+            bool onCanvas = prefabToLoad.GetComponent<PrefabSettings>().PrefabOnCanvas;
+
+            Transform prefabLocation;
+            if (onCanvas) prefabLocation = canvas.transform;
+            else prefabLocation = canvas.transform.parent;
+
+            GameObject puzzle = Instantiate(prefabToLoad, transform.position, Quaternion.identity, prefabLocation);
+
             puzzles[i] = puzzle;
+
+            puzzle.GetComponent<PrefabSettings>().SetButton(buttonsGroup.transform.GetChild(i).gameObject);
         }
     }
-
 }

@@ -16,6 +16,11 @@ public class GuessNumber : MonoBehaviour
 
     private LevelController levelController;
 
+    private Inventory inventory;
+    public GameObject inventoryItem;
+    
+    private GameObject puzzleButton;
+
     private int[] correctAnswers = new int[] { 42, 12, 64 }; // Answers for level 1, 2, 3
 
     private int maxLevel = 3;
@@ -24,7 +29,9 @@ public class GuessNumber : MonoBehaviour
 
     void Start()
     {
-        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        inventory = GetComponent<PrefabSettings>().GetInventory();
         LoadTableText();
         LoadAnswerText();
     }
@@ -81,7 +88,11 @@ public class GuessNumber : MonoBehaviour
                 LoadTableText();
                 LoadAnswerText();
             }
-            else levelController.LaunchMainScreen();
+            else
+            {
+                levelController.LaunchMainScreen(puzzleButton);
+                inventory.AddItem(inventoryItem);
+            }
         }
         else Debug.Log("Incorrect Answer");
     } 
