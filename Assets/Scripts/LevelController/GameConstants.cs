@@ -34,7 +34,7 @@ public enum LevelTwoPuzzles
 
 }
 
-public enum LevelTwoPuzzles
+public enum LevelThreePuzzles
 {
     RotatePuzzle,
     LockPuzzle,

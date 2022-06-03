@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2951399595434044388}
   - component: {fileID: 2951399595434044389}
+  - component: {fileID: -3321972453637444907}
   m_Layer: 0
   m_Name: SlidingPuzzle
   m_TagString: Untagged
@@ -61,3 +62,16 @@ MonoBehaviour:
   - {fileID: 2487019900452698373, guid: 9f5433978630b394688ad154b04c1166, type: 3}
   - {fileID: 8018089613639400461, guid: 9f5433978630b394688ad154b04c1166, type: 3}
   - {fileID: 0}
+--- !u!114 &-3321972453637444907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951399595434044390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59506f6fb7615bf468f641448db6bfd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabOnCanvas: 0

@@ -163,6 +163,12 @@ public class BottleController : MonoBehaviour
         transform.GetComponent<SpriteRenderer>().sortingOrder -= 2;
         bottleMaskSprite.sortingOrder -= 2;
 
+        //Update the color count of the second bottle
+        bottleControllerRef.UpdateTopColorValues();
+
+        //Check if the second bottle is full send a trigger and deactivate
+        bottleControllerRef.IsBottleComplete();
+
         Debug.Log("Finished rotation operation thank you!");
         OnFinishColorTransfer?.Invoke();
 
@@ -269,11 +275,7 @@ public class BottleController : MonoBehaviour
 
         this.UpdateTopColorValues();
         
-        //Update the color count of the second bottle
-        bottleControllerRef.UpdateTopColorValues();
 
-        //Check if the second bottle is full send a trigger and deactivate
-        bottleControllerRef.IsBottleComplete();
 
         //UpdateRotationIndex();
 

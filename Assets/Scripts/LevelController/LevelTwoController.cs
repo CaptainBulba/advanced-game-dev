@@ -19,11 +19,23 @@ public class LevelTwoController : LevelController
 
         for (int i = 0; i < totalLevelPuzzles; i++)
         {
-            //Initiating the puzzle LevelTwoPuzzles using the information stored in the LevelTwoPuzzles enum
+            //Initiating the puzzle prefabs using the information stored in the LevelOneType enum
             var actionName = (LevelTwoPuzzles)i;
-            GameObject puzzle = Instantiate(Resources.Load(actionName.ToString()), transform.position, Quaternion.identity) as GameObject;
+
+            GameObject prefabToLoad = Resources.Load(actionName.ToString()) as GameObject;
+            bool onCanvas = prefabToLoad.GetComponent<PrefabSettings>().PrefabOnCanvas;
+
+            Transform prefabLocation;
+            if (onCanvas) prefabLocation = canvas.transform;
+            else prefabLocation = canvas.transform.parent;
+
+            GameObject puzzle = Instantiate(prefabToLoad, transform.position, Quaternion.identity, prefabLocation);
+
             puzzles[i] = puzzle;
+
+            puzzle.GetComponent<PrefabSettings>().SetButton(buttonsGroup.transform.GetChild(i).gameObject);
         }
     }
-
 }
+
+

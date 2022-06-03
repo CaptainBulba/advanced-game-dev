@@ -9,15 +9,22 @@ public class ColorPuzzleController : MonoBehaviour
 
     const int countWinCondition = 6;
     bool currentlyTransfering = false;
-    private LevelController levelController;
-
     [SerializeField]
     int countCompleteBottles = 0;
+
+    private LevelController levelController;
+    private GameObject puzzleButton;
+
+    private Inventory inventory;
+    public GameObject inventoryItem;
+
 
     // Start is called before the first frame update
     void Start()
     {
         levelController = GameObject.Find("LevelController").GetComponent<LevelTwoController>();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        inventory = GetComponent<PrefabSettings>().GetInventory();
     }
 
     private void OnEnable()
@@ -84,11 +91,6 @@ public class ColorPuzzleController : MonoBehaviour
                             {
                                 currentlyTransfering = true;
                                 firstBottle.StartColorTransfer();
-
-                                Debug.Log("After color transfer:");
-                                Debug.Log("Number of top colors in first bottle is " + firstBottle.numberOfTopColorLayers);
-                                Debug.Log("Number of top colors in second bottle is " + secondBottle.numberOfTopColorLayers);
-    
                             }
 
                             //After finishing the color transfer Reset the selections
@@ -114,14 +116,20 @@ public class ColorPuzzleController : MonoBehaviour
         Debug.Log("Color Puzzle Controller, current completed bottles " + countCompleteBottles);
         if (countCompleteBottles == countWinCondition)
         {
-            StartCoroutine(WaitBeforeClosing());
-            levelController.LaunchMainScreen();
+           
+            //StartCoroutine(WaitBeforeClosing());
+           
+            
+          
+            levelController.LaunchMainScreen(puzzleButton);
         }
             
     }
     IEnumerator WaitBeforeClosing()
     {
-        yield return new WaitForSeconds(20.0f);
+
+        yield return new WaitForEndOfFrame();
+
 
     }
 }
