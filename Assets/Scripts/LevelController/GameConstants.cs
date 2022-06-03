@@ -23,6 +23,7 @@ public class GameConstants
 
     public enum LevelTwoPuzzles
     {
-        SlidingPuzzle
+        SlidingPuzzle,
+        ColorSortingPuzzle
 
     }

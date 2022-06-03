@@ -43,7 +43,9 @@ public class BottleController : MonoBehaviour
     Vector3 endPosition;
 
     public LineRenderer lineRenderer;
+    
     public static UnityAction OnBottleComplete;
+    public static UnityAction OnFinishColorTransfer;
 
     // Start is called before the first frame update
     void Start()
@@ -162,7 +164,9 @@ public class BottleController : MonoBehaviour
         bottleMaskSprite.sortingOrder -= 2;
 
         Debug.Log("Finished rotation operation thank you!");
-        
+        OnFinishColorTransfer?.Invoke();
+
+
     }
 
     //To update colors
@@ -271,7 +275,7 @@ public class BottleController : MonoBehaviour
         //Check if the second bottle is full send a trigger and deactivate
         bottleControllerRef.IsBottleComplete();
 
-        UpdateRotationIndex();
+        //UpdateRotationIndex();
 
         angleValue = 0.0f;
         transform.eulerAngles = new Vector3(0, 0, angleValue);
@@ -332,15 +336,11 @@ public class BottleController : MonoBehaviour
                 }
             }
 
-            
+            //now when we rotate we need to empty top colors by adjusting the value of rotation index
+            rotationIndex = 3 - (numberOfColorsInBottle - numberOfTopColorLayers);
         }
     }
 
-    private void UpdateRotationIndex()
-    {
-        //now when we rotate we need to empty top colors by adjusting the value of rotation index
-        rotationIndex = 3 - (numberOfColorsInBottle - numberOfTopColorLayers);
-    }
 
     //check if same colors are on top of each bottle
     //And if second bottle is empty and how much we can add on top of it
@@ -383,6 +383,12 @@ public class BottleController : MonoBehaviour
         }
 
     }
+
+    public bool IsBottleEmpty()
+    {
+        return numberOfColorsInBottle == 0;
+    }
+
     //This updates the rotation index based on the number of empty spaces the second bottle can accomodate 
     private void CalculateRotationIndex(int numberOfEmptySpacesInBottle)
     {
