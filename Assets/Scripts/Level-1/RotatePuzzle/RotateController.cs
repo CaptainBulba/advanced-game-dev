@@ -6,18 +6,11 @@ public class RotateController : MonoBehaviour
 {
     public Transform[] puzzles;
     private int inCorrectPos;
-
     private LevelController levelController;
-    private GameObject puzzleButton;
-
-    private Inventory inventory;
-    public GameObject inventoryItem;
 
     void Start()
     {
-        levelController = GetComponent<PrefabSettings>().GetLevelController();
-        puzzleButton = GetComponent<PrefabSettings>().GetButton();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
+        levelController = GameObject.Find("LevelController").GetComponent<LevelOneController>();    
     }
 
     public void CheckPuzzlePos()
@@ -26,12 +19,7 @@ public class RotateController : MonoBehaviour
         {
             if (puzzles[i].rotation.z == 0) inCorrectPos++;
         }
-
-        if (inCorrectPos == puzzles.Length)
-        {
-            levelController.LaunchMainScreen(puzzleButton);
-            inventory.AddItem(inventoryItem);
-        }
-        else if (inCorrectPos != puzzles.Length) inCorrectPos = 0;
+        if (inCorrectPos == puzzles.Length) levelController.LaunchMainScreen();
+        if (inCorrectPos != puzzles.Length) inCorrectPos = 0;
     }
 }
