@@ -9,14 +9,23 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: ff18040fbf6243c4f9f0fbf36cf3be84
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 9c27520d10fde064e95039ec7d725ee2
+  - enabled: 1
+    path: Assets/Scenes/Level-0.unity
+    guid: ad06f5a8412837d4f99f1f0b48d113ea
+  - enabled: 1
     path: Assets/Scenes/level-1.unity
     guid: 848c1d08ccc2fbb44918e4788a1c688f
   - enabled: 1
     path: Assets/Scenes/level-2.unity
     guid: 392956779c0f0e941920ec683cf3915c
   - enabled: 0
-    path: Assets/Scenes/15puzzle.unity
-    guid: 6971ee71e3aee21489f713f4decc45c9
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Wordpuzzle.unity
     guid: 359fda62b819ae0498ac1dadf28548dd
