@@ -53,6 +53,8 @@ public class RotateController : MonoBehaviour
             //After rotation angle doesn't get exactly to zero instead to a very small value e.g. 9.659347E-06
             if (Mathf.Floor(puzzles[i].rotation.eulerAngles.z) != 0)
             {
+                Debug.Log(puzzles[i].rotation.eulerAngles.z);
+                Debug.Log("Tile item " + i);
                 //Will return without doing anything if at least one element is not in correct rotation
                 return;
             }
