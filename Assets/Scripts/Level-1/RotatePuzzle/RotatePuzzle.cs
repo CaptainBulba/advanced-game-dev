@@ -14,5 +14,4 @@ public class RotatePuzzle : MonoBehaviour
             rotateController.CheckPuzzlePos();
         }
     }
-
 }

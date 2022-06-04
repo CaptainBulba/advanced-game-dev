@@ -438,7 +438,7 @@ RectTransform:
   - {fileID: 1010686619}
   - {fileID: 2038124552}
   m_Father: {fileID: 864753020}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -670,9 +670,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 475608753}
   - {fileID: 1984310075}
   - {fileID: 299791196}
-  - {fileID: 475608753}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1197,8 +1197,8 @@ MonoBehaviour:
   buttonsGroup: {fileID: 475608752}
   puzzleButtons: []
   totalLevelPuzzles: 0
-  levelMusic: {fileID: 8300000, guid: 322a9e87a1736c042bc23fba75807f60, type: 3}
   startPuzzleTime: 3
+  levelMusic: {fileID: 8300000, guid: 322a9e87a1736c042bc23fba75807f60, type: 3}
 --- !u!1 &1919488808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779580149352656236, guid: a18ec4245a4d9124e850cdfe37cb4064, type: 3}
@@ -1599,7 +1599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7779580150906031384, guid: a18ec4245a4d9124e850cdfe37cb4064, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7779580150906031384, guid: a18ec4245a4d9124e850cdfe37cb4064, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1704,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404168295531886342, guid: e636e54085076eb429a37909cfd175e4, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8404168295531886342, guid: e636e54085076eb429a37909cfd175e4, type: 3}
       propertyPath: m_AnchorMax.x

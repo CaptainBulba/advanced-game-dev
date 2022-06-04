@@ -6,7 +6,6 @@ public class ClickOnItem : MonoBehaviour
 {
     public GameObject displayObject;
 
-
     public void UseItem()
     {
         Instantiate(displayObject, gameObject.transform.parent.parent, false);
