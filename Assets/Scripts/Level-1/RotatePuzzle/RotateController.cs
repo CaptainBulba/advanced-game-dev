@@ -5,7 +5,6 @@ using UnityEngine;
 public class RotateController : MonoBehaviour
 {
     public Transform[] puzzles;
-    private int inCorrectPos;
 
     private LevelController levelController;
     private GameObject puzzleButton;
@@ -18,20 +17,52 @@ public class RotateController : MonoBehaviour
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
         inventory = GetComponent<PrefabSettings>().GetInventory();
+
+        ShufflePuzzle();
     }
 
+    void ShufflePuzzle()
+    {
+        for (int i = 0; i < puzzles.Length; i++)
+        {
+            int n = Random.Range(0, 4);
+            switch (n)
+            {
+                case 0:
+                    puzzles[i].Rotate(0, 0, 0);
+                    break;
+                case 1:
+                    puzzles[i].Rotate(0, 0, 90);
+                    break;
+                case 2:
+                    puzzles[i].Rotate(0, 0, 180);
+                    break;
+                case 3:
+                    puzzles[i].Rotate(0, 0, 270);
+                    break;
+            }
+        }
+
+        //manually making sure this tile is fixed as it is black in game and might confuse players
+        puzzles[12].Rotate(0, 0, 0);
+    }
     public void CheckPuzzlePos()
     {
         for (int i = 0; i < puzzles.Length; i++)
         {
-            if (puzzles[i].rotation.z == 0) inCorrectPos++;
+            //After rotation angle doesn't get exactly to zero instead to a very small value e.g. 9.659347E-06
+            if (Mathf.Floor(puzzles[i].rotation.eulerAngles.z) != 0)
+            {
+                //Will return without doing anything if at least one element is not in correct rotation
+                return;
+            }
         }
+        
+        Debug.Log("All at correct position");
 
-        if (inCorrectPos == puzzles.Length)
-        {
-            levelController.LaunchMainScreen(puzzleButton);
-            inventory.AddItem(inventoryItem);
-        }
-        else if (inCorrectPos != puzzles.Length) inCorrectPos = 0;
+        //Exit the puzzle and return to level
+        levelController.LaunchMainScreen(puzzleButton);
+        inventory.AddItem(inventoryItem);
+
     }
 }

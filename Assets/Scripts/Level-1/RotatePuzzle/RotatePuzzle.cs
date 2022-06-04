@@ -8,9 +8,19 @@ public class RotatePuzzle : MonoBehaviour
 
     void OnMouseOver()
     {
+        //mouse left click
         if (Input.GetMouseButtonDown(0))
         {
-            transform.Rotate(0f, 0f, 90f);
+            //rotate along the z-axis
+            transform.Rotate(Vector3.forward * 90);
+
+            rotateController.CheckPuzzlePos();
+        }
+
+        //mouse right click
+        if (Input.GetMouseButtonDown(1))
+        {
+            transform.Rotate(Vector3.forward * -90);
             rotateController.CheckPuzzlePos();
         }
     }
