@@ -70,7 +70,8 @@ public class SlidingPuzzleScript : MonoBehaviour
         {
             for(int x = 0; x<4; x++)
             {
-                NumberBox box = Instantiate(boxPrefab, new Vector2 (x, y), Quaternion.identity);
+                NumberBox box = Instantiate(boxPrefab, new Vector2 (x, y), Quaternion.identity,this.transform);
+                //Instantiate()
                 box.Init(x, y, n + 1, sprites[n], ClickToSwap);
                 boxes[x,y] = box;
                 n++;
