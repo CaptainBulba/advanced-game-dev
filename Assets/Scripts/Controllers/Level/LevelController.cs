@@ -32,6 +32,8 @@ public class LevelController : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerText playerText;
 
+    public AudioClip levelMusic;
+
     void OnEnable()
     {
         inventory = GetComponent<Inventory>();
