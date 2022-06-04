@@ -8,7 +8,7 @@ public class LevelTwoController : LevelController
     // Start is called before the first frame update
     void Start()
     {
-        MusicController.Instance.ChangeMusic(levelMusic);
+        //MusicController.Instance.ChangeMusic(levelMusic);
 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         Debug.Log("You are in level " + currentLevel);

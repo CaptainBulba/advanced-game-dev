@@ -2,17 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NumberBox : MonoBehaviour
 {
     //Internal variables related to the position and value of the Numberbox/tile
     public int index = 0;
+    public bool isCorrectPlace;
     int x =0;
     int y =0;
 
-
-
     private Action<int, int> swapFunc = null;
+    
+    public static UnityAction OnSwap;
 
     public void Init(int i, int j, int index, Sprite sprite, Action<int,int> swapFunc)
     {
@@ -30,6 +32,8 @@ public class NumberBox : MonoBehaviour
     {
         x = i;
         y = j;
+
+        CheckCorrectPosition();
 
         StartCoroutine(Move());
 
@@ -57,6 +61,18 @@ public class NumberBox : MonoBehaviour
         this.gameObject.transform.localPosition = end;
     }
 
+    public void CheckCorrectPosition()
+    {
+        int checkIndex = 4 * (3 - y) + x + 1;
+        if(checkIndex == index)
+            isCorrectPlace = true;
+        else
+            isCorrectPlace = false;
+        Debug.Log("The tile current index is " + checkIndex + " The actual index is " + index);
+    }
+
+    public bool IsCorrectPlace() { return isCorrectPlace; }
+        
     public bool IsEmpty()
     {
         //If the index of the current Number/Tile Box is equal to 16 means it is the empty box
@@ -67,6 +83,7 @@ public class NumberBox : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && swapFunc !=null)
         {
             swapFunc(x,y);
+            OnSwap?.Invoke();
         }
     }
 }

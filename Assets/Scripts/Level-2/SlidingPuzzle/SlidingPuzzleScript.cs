@@ -7,18 +7,60 @@ public class SlidingPuzzleScript : MonoBehaviour
     public NumberBox boxPrefab;
     public NumberBox[,] boxes = new NumberBox[4,4];
     public Sprite[] sprites;
-
     Vector2 lastMove;
+
+    [SerializeField]
+    bool winGame = false;
+
+    private LevelController levelController;
+    private GameObject puzzleButton;
+
+    private Inventory inventory;
+    public GameObject inventoryItem;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        levelController = GameObject.Find("LevelController").GetComponent<LevelTwoController>();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        inventory = GetComponent<PrefabSettings>().GetInventory();
+
+        //Initilize the board
         Init();
-        for(int i = 0; i < 5; i++)
+
+        //Prepare the game by shuffling tiles
+        Debug.Log("Shuffle operation ------- ");
+        for(int i = 0; i < 2; i++)
         {
             Shuffle();
         }
+
     }
+
+    private void OnEnable()
+    {
+        NumberBox.OnSwap += CheckWinningCondition;
+    }
+
+
+    private void CheckWinningCondition()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (!boxes[i, j].IsCorrectPlace())
+                {
+                    Debug.Log("At least one tile is not in a correct position");
+                    return;
+                }
+            }
+        }
+
+        levelController.LaunchMainScreen(puzzleButton);
+    }
+
 
     //To setup the puzzle board based on the sprite image we provided
     void Init()
