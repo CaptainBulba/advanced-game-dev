@@ -21,6 +21,7 @@ public class PlayerText : MonoBehaviour
     public IEnumerator PlayText(string text)
 	{
 		playerText.text = null;
+
 		textObject.SetActive(true);
 
 		foreach (char letter in text)
@@ -32,6 +33,5 @@ public class PlayerText : MonoBehaviour
 		yield return new WaitForSeconds(hideAfter);
 
 		textObject.SetActive(false);
-
 	}
 }
