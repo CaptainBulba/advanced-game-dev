@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 308616380}
   - component: {fileID: 308616383}
   m_Layer: 5
-  m_Name: Rotate Puzzle
+  m_Name: Weight Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cca1a74cdaf71479f95dcaa85a74bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionIndex: 4
+  actionIndex: 3
   puzzleText: end
 --- !u!1001 &4821243593719805773
 PrefabInstance:

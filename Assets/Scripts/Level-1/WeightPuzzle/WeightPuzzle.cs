@@ -24,8 +24,14 @@ public class WeightPuzzle : MonoBehaviour
 
     private int currentLevel = 0; // current stage of the puzzle
 
+    private LevelController levelController;
+    private GameObject puzzleButton;
+
     void Start()
     {
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
+
         for (int i = 0; i < isBoxFull.Length; i++)
         {
             isBoxFull[i] = false;
@@ -161,7 +167,7 @@ public class WeightPuzzle : MonoBehaviour
         yield return new WaitForSeconds(displayResultTime);
 
         if (currentLevel == rightWeight.Length)
-            Debug.Log("Return to Main");
+            levelController.LaunchMainScreen(puzzleButton);
         else
             CleanAllBoxes();
     }
