@@ -12,25 +12,11 @@ public class Chest : MonoBehaviour
 
     private LevelController levelController;
     private GameObject puzzleButton;
-    private Inventory inventory;
-
-    public int mandatoryItemID;
 
     void Start()
     {
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
-    }
-
-    void OnEnable()
-    {
         levelController = GetComponent<PrefabSettings>().GetLevelController();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
-
-        if (!inventory.SearchItem(mandatoryItemID))
-        {
-            Debug.Log("You don't have necessary item");
-            levelController.LaunchMainScreen();
-        }
     }
 
     public void ChangeNumber(Text chestText)

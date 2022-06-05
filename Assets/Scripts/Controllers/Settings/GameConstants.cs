@@ -22,15 +22,16 @@ public enum Items
 
 public enum LevelOnePuzzles
 {
-    RotatePuzzle,
+    WeightPuzzle,
     LockPuzzle,
-    GuessNumberPuzzle,
+    GuessNumberPuzzle
 }
 
 public enum LevelTwoPuzzles
 {
     SlidingPuzzle,
-    ColorSortingPuzzle
+    ColorSortingPuzzle,
+    RotatePuzzle
 
 }
 

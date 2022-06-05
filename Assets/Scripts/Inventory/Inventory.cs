@@ -8,7 +8,13 @@ public class Inventory : MonoBehaviour
     public GameObject[] slots;
     public GameObject closeButton;
 
-    private bool invVisability = true;
+    private bool invVisability = false;
+
+    void Start()
+    {
+        ToggleInventory();
+    }
+
 
     public void AddItem(GameObject inventoryItem)
     {
@@ -23,18 +29,25 @@ public class Inventory : MonoBehaviour
     }
 
     public void ToggleInventory()
-    {
-        if (invVisability) closeButton.transform.SetParent(closeButton.transform.parent.parent);
-        else closeButton.transform.SetParent(inventory.transform);
+    { 
 
-        invVisability = !invVisability;
+        if (invVisability) closeButton.transform.SetParent(inventory.transform);
+        else closeButton.transform.SetParent(closeButton.transform.parent.parent);
+
         inventory.SetActive(invVisability);
+        invVisability = !invVisability;
     }
 
     public void ToggleInventory(bool value)
     {
-        invVisability = value;
-        inventory.SetActive(value);
+        if(!value)
+        {
+            inventory.SetActive(value);
+            closeButton.SetActive(value);
+        }
+
+        if (value)
+            closeButton.SetActive(value);
     }
 
     public bool SearchItem(int itemID)

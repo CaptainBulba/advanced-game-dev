@@ -9,9 +9,6 @@ public class SlidingPuzzleScript : MonoBehaviour
     public Sprite[] sprites;
     Vector2 lastMove;
 
-    [SerializeField]
-    bool winGame = false;
-
     private LevelController levelController;
     private GameObject puzzleButton;
 
@@ -31,7 +28,7 @@ public class SlidingPuzzleScript : MonoBehaviour
 
         //Prepare the game by shuffling tiles
         Debug.Log("Shuffle operation ------- ");
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < 5; i++)
         {
             Shuffle();
         }
@@ -58,6 +55,7 @@ public class SlidingPuzzleScript : MonoBehaviour
             }
         }
 
+        //exit puzzle and return to level once all tiles are at their correct locations
         levelController.LaunchMainScreen(puzzleButton);
     }
 

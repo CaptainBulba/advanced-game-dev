@@ -30,7 +30,9 @@ public class LevelController : MonoBehaviour
 
     private Inventory inventory;
     private PlayerMovement playerMovement;
-    private PlayerText playerText;
+
+    [HideInInspector]
+    public PlayerText playerText;
 
     public AudioClip levelMusic;
 
