@@ -175,6 +175,7 @@ MonoBehaviour:
   puzzleButtons: []
   totalLevelPuzzles: 3
   startPuzzleTime: 0
+  playerText: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 322a9e87a1736c042bc23fba75807f60, type: 3}
 --- !u!114 &103808917
 MonoBehaviour:
