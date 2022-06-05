@@ -42,6 +42,5 @@ public class GameTime : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene(gameoverScene);
         }
-            
     }
 }
