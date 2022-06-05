@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 0
-  puzzleText: Let me try this one
+  puzzleText: I wonder what do these weights do...
 --- !u!1 &332611930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779580150938746654, guid: a18ec4245a4d9124e850cdfe37cb4064, type: 3}
@@ -668,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264, y: -55}
+  m_AnchoredPosition: {x: -321, y: -79}
   m_SizeDelta: {x: 24.75, y: 24.75}
   m_Pivot: {x: 0.6414618, y: 0.4999999}
 --- !u!114 &1010686620
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 2
-  puzzleText: Hey
+  puzzleText: 'Some numbers... What will it give me if I solve everything? '
 --- !u!1 &1077328829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 1
-  puzzleText: Text
+  puzzleText: What is if put the code what I just got?
 --- !u!1 &1488010827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779580149976023055, guid: a18ec4245a4d9124e850cdfe37cb4064, type: 3}
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   puzzleButtons: []
   totalLevelPuzzles: 0
   startPuzzleTime: 3
+  playerText: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 322a9e87a1736c042bc23fba75807f60, type: 3}
 --- !u!1 &1919488808 stripped
 GameObject:
@@ -1341,6 +1342,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 824226529}
+    - target: {fileID: 4821243594028122838, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
+      propertyPath: timer
+      value: 3600
+      objectReference: {fileID: 0}
     - target: {fileID: 4821243594028122839, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
       propertyPath: m_Name
       value: Timer

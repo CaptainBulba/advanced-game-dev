@@ -11,6 +11,8 @@ public class GameTime : MonoBehaviour
 
     public static GameTime Instance { get; private set; }
 
+    private string gameoverScene = "Gameover";
+
     void Awake()
     {
         if (Instance == null)
@@ -26,14 +28,6 @@ public class GameTime : MonoBehaviour
     {
         timer -= Time.deltaTime;
         DisplayTime(timer);
-
-        //codition for switch scene
-        if (timer <= 1)
-        {
-            Debug.Log("Gameover scene");
-        }
-        
-        //timerbox.text = timer.ToString();
     }
 
     void DisplayTime(float timefordisplay)
@@ -42,5 +36,12 @@ public class GameTime : MonoBehaviour
         float second = Mathf.FloorToInt(timefordisplay % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minute, second);
+
+        if (timer <= 1)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(gameoverScene);
+        }
+            
     }
 }

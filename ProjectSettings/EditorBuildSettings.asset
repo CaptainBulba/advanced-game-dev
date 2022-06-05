@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 9c27520d10fde064e95039ec7d725ee2
   - enabled: 1
+    path: Assets/Scenes/Gameover.unity
+    guid: 3fe82150057d62748991567e7949c709
+  - enabled: 1
     path: Assets/Scenes/Level-0.unity
     guid: ad06f5a8412837d4f99f1f0b48d113ea
   - enabled: 1
