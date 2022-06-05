@@ -11,6 +11,10 @@ public class WordSearch : MonoBehaviour {
     public int gridX, gridY;
     public float spacing; // spac between tiles
 
+    private LevelController levelController;
+    private GameObject puzzleButton;
+
+
     public GameObject tile, background, current;
     public Color defaultTint, mouseoverTint, identifiedTint;
     public bool ready = false, correct = false;
@@ -53,6 +57,9 @@ public class WordSearch : MonoBehaviour {
         //finding the number of words dnd addeing it in words array
         List<string> findLength = new List<string>(); 
         int count = 0;
+
+        puzzleButton = GetComponent<PrefabSettings>().GetButton();
+        levelController = GetComponent<PrefabSettings>().GetLevelController();
 
         if (useWordpool) 
         {
@@ -160,7 +167,8 @@ public class WordSearch : MonoBehaviour {
 
             if (identified == word.Count)
             {
-                Debug.Log("-----------");
+                levelController.LaunchMainScreen(puzzleButton);
+               
             }
         }        
     }

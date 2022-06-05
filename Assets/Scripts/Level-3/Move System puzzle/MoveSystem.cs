@@ -9,6 +9,7 @@ public class MoveSystem : MonoBehaviour
 
     private float startPosx;
     private float startPosy;
+    public static int count;
 
     private Vector3 resetpos;
     public bool doneornot;
@@ -31,6 +32,7 @@ public class MoveSystem : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
             this.gameObject.transform.localPosition = new Vector3(mousePos.x - startPosx, mousePos.y - startPosy, this.gameObject.transform.localPosition.z);
+              
         }
 
     }
@@ -60,6 +62,9 @@ public class MoveSystem : MonoBehaviour
         {
             this.transform.localPosition = new Vector3(keycolor.transform.localPosition.x, keycolor.transform.localPosition.y, keycolor.transform.localPosition.z);
             doneornot = true;
+
+            count++;
+            Debug.Log("count" +count);
         }
 
         else

@@ -60,6 +60,7 @@ public class LevelController : MonoBehaviour
 
     public void LaunchMainScreen(GameObject buttonToDelete)
     {
+
         Debug.Log("Finished the puzzle and returned to main");
         completedPuzzles++;
 

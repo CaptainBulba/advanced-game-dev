@@ -36,8 +36,8 @@ public enum LevelTwoPuzzles
 
 public enum LevelThreePuzzles
 {
-    RotatePuzzle,
-    LockPuzzle,
-    GuessNumberPuzzle,
+    MoveSystemPuzzle,
+    ThrowPuzzle,
+    WordPuzzle
 }
 

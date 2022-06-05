@@ -7,6 +7,10 @@ public class Objdirection : MonoBehaviour
     //public GameObject obj;
     //public float power;
 
+    private LevelController levelController;
+    private GameObject puzzleButton;
+    public PrefabSettings prefabSettings;
+
     private trigger trigger;
     public Vector2 direction;
 
@@ -15,13 +19,19 @@ public class Objdirection : MonoBehaviour
     public Rigidbody2D rb;
 
     public GameObject brick;
+    public GameObject prefab;
     public float force;
     public int counter;
     public bool finished;
 
     private void Start()
     {
+
+        
+        puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
+        levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -72,8 +82,8 @@ public class Objdirection : MonoBehaviour
 
         if(trigger.counter > 3)
         {
-            
-            Debug.Log("-----------"); 
+            levelController.LaunchMainScreen(puzzleButton);
+            prefab.SetActive(false);
             finished = true;
         }
     }
