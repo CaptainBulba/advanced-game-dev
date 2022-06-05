@@ -428,7 +428,7 @@ MonoBehaviour:
   - {fileID: 4157777501531183942}
   - {fileID: 4157777501363150704}
   correctAnswer: 010000000200000003000000
-  mandatoryItemID: 1
+  mandatoryItemID: 0
 --- !u!114 &-1369740342637742819
 MonoBehaviour:
   m_ObjectHideFlags: 0
