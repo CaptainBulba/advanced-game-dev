@@ -1064,7 +1064,7 @@ MonoBehaviour:
   buttonsGroup: {fileID: 475608752}
   puzzleButtons: []
   totalLevelPuzzles: 0
-  startPuzzleTime: 3
+  startPuzzleTime: 7
   playerText: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 322a9e87a1736c042bc23fba75807f60, type: 3}
 --- !u!1 &1919488808 stripped
