@@ -202,7 +202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &361067766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000045776, y: -218}
+  m_AnchoredPosition: {x: 0.000045776, y: 3}
   m_SizeDelta: {x: 258.22, y: 48.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &361067767
@@ -791,11 +791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98b6a29b3213ac4784fb0916c9b82c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 500}
-  moveTime: 30
-  continueButton: {fileID: 361067765}
-  storyText: {fileID: 2066795089}
   levelMusic: {fileID: 8300000, guid: d937a6aaa91daf94c82cbeec5c308d01, type: 3}
+  continueButton: {fileID: 361067765}
+  storyTextRect: {fileID: 2066795089}
+  wordPause: 0.25
 --- !u!4 &1951241467
 Transform:
   m_ObjectHideFlags: 0
@@ -844,8 +843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -880}
-  m_SizeDelta: {x: 960, y: 1032.48}
+  m_AnchoredPosition: {x: 0.76, y: -178}
+  m_SizeDelta: {x: 940.13, y: 179.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066795090
 MonoBehaviour:
@@ -869,19 +868,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' Bob is a 10 years old boy who was challenged by his friends to enter
-    a cursed house in his neighborhood. The house has a lot of rumors and stories,
+  m_Text: 'Bob is a 10 years old boy who was challenged by his friends to enter a
+    cursed house in his neighborhood. The house has a lot of rumors and stories,
     some even say that a witch lives there. When Bob entered the house the front
     door immediately closed and he fell down into the basement. He panicked and started
     shouting for help, but there was no response, so he quickly ran to the door,

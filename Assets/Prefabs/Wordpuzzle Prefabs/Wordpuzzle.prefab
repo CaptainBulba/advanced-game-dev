@@ -51,8 +51,7 @@ MonoBehaviour:
   gridX: 6
   gridY: 6
   spacing: 1.2
-  lastobject: {fileID: 7958211770694415185, guid: f7ec51711bc979748bca8df2dd761b10, type: 3}
-  tile: {fileID: 5520048490478646451, guid: 35ec0508c81b80c47938fffb8029d36f, type: 3}
+  tile: {fileID: 8066726373278937559, guid: 643679c703fb6994099269cc0c4c7e51, type: 3}
   background: {fileID: 7958211770694415185, guid: f7ec51711bc979748bca8df2dd761b10, type: 3}
   current: {fileID: 0}
   defaultTint: {r: 0.9150943, g: 0.26330543, b: 0.26330543, a: 0}

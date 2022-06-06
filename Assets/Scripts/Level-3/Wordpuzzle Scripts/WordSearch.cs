@@ -131,17 +131,17 @@ public class WordSearch : MonoBehaviour {
         {
 			backgroundObject = Instantiate (background, new Vector3 ((tile.transform.localScale.x * spacing)
 			* (gridX / 2), 1, (tile.transform.localScale.z * spacing)
-			* (gridY / 2) - (tile.transform.localScale.z * spacing)), Quaternion.identity) as GameObject;
+			* (gridY / 2) - (tile.transform.localScale.z * spacing)), Quaternion.identity,this.transform) as GameObject;
 		} 
         else if (gridX % 2 == 0 && gridY % 2 != 0)
         {
 			backgroundObject = Instantiate (background, new Vector3 ((tile.transform.localScale.x * spacing) * (gridX / 2)
-			- (tile.transform.localScale.x * spacing), 1, (tile.transform.localScale.z * spacing) * (gridY / 2)), Quaternion.identity) as GameObject;
+			- (tile.transform.localScale.x * spacing), 1, (tile.transform.localScale.z * spacing) * (gridY / 2)), Quaternion.identity, this.transform) as GameObject;
 		} 
         else 
         {
 			backgroundObject = Instantiate(background, new Vector3 ((tile.transform.localScale.x * spacing) * (gridX / 2) -
-				(tile.transform.localScale.x * spacing), 1, (tile.transform.localScale.z * spacing) * (gridY / 2) - (tile.transform.localScale.z * spacing)), Quaternion.identity) as GameObject;
+				(tile.transform.localScale.x * spacing), 1, (tile.transform.localScale.z * spacing) * (gridY / 2) - (tile.transform.localScale.z * spacing)), Quaternion.identity, this.transform) as GameObject;
 		}
         backgroundObject.transform.localScale = new Vector3(((tile.transform.localScale.x * spacing) * gridX), 1, ((tile.transform.localScale.x * spacing) * gridY));
    }

@@ -43,7 +43,7 @@ public class Objdirection : MonoBehaviour
 
         direction = mousePos - objPos;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }

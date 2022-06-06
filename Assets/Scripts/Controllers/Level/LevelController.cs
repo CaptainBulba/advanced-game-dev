@@ -121,7 +121,10 @@ public class LevelController : MonoBehaviour
                 SceneManager.LoadScene(currentLevel + 1);
             }
             else
-                Debug.Log("You have not completed all puzzles");            
+            {
+                StartCoroutine(playerText.PlayText("I have not completed all challanges in this room yet."));
+                //Debug.Log("You have not completed all puzzles");
+            }
         }
         else 
             Debug.Log("There is something wrong/missing with the button");

@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class Letters : MonoBehaviour {
-	
+public class Letters : MonoBehaviour
+{
+
     public bool utilized = false;
     public bool identified = false;
-	public TextMesh letter;
+    public TextMesh letter;
     public int gridX, gridY;
 
-    void Start() {
+    void Start()
+    {
         GetComponent<Renderer>().materials[0].color = WordSearch.Instance.defaultTint;
     }
-    
-    void Update() {
-        if (WordSearch.Instance.ready) 
+
+    void Update()
+    {
+        if (WordSearch.Instance.ready)
         {
-            if (!utilized && WordSearch.Instance.current == gameObject) 
+            if (!utilized && WordSearch.Instance.current == gameObject)
             {
                 WordSearch.Instance.selected.Add(this.gameObject);
                 GetComponent<Renderer>().materials[0].color = WordSearch.Instance.mouseoverTint;
@@ -23,21 +26,22 @@ public class Letters : MonoBehaviour {
             }
         }
 
-        if (identified) 
+        if (identified)
         {
-			if (GetComponent<Renderer>().materials[0].color != WordSearch.Instance.identifiedTint) 
+            if (GetComponent<Renderer>().materials[0].color != WordSearch.Instance.identifiedTint)
             {
-				GetComponent<Renderer>().materials[0].color = WordSearch.Instance.identifiedTint;
-			} 
-			return;
+                GetComponent<Renderer>().materials[0].color = WordSearch.Instance.identifiedTint;
+            }
+            return;
         }
 
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0))
+        {
             utilized = false;
-			if (GetComponent<Renderer>().materials[0].color != WordSearch.Instance.defaultTint) 
+            if (GetComponent<Renderer>().materials[0].color != WordSearch.Instance.defaultTint)
             {
-				GetComponent<Renderer>().materials[0].color = WordSearch.Instance.defaultTint;
-			}
+                GetComponent<Renderer>().materials[0].color = WordSearch.Instance.defaultTint;
+            }
         }
     }
 }
