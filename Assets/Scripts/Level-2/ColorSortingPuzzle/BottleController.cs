@@ -5,7 +5,17 @@ using UnityEngine.Events;
 
 public class BottleController : MonoBehaviour
 {
+    //Bottle color variables
     public Color[] bottleColors;
+    public Color topColor;
+    public int numberOfTopColorLayers = 1;
+    [Range(0, 4)]
+    public int numberOfColorsInBottle;
+
+    [SerializeField]
+    private Color[] originalBottleColors;
+    private int originalNumberOfColorsInBottle;
+
     public SpriteRenderer bottleMaskSprite;
     
     public float timeToRotate = 1.0f;
@@ -19,18 +29,10 @@ public class BottleController : MonoBehaviour
     public float[] rotationValues;
 
     private int rotationIndex = 0;
-    [Range(0,4)]
-    public int numberOfColorsInBottle = 4;
-
-    public Color topColor;
-    public int numberOfTopColorLayers = 1;
 
     //Reference to the second bottle to be filled
     public BottleController bottleControllerRef;
     private int numberOfColorsToTransfer = 0;
-
-    //Temporary variable
-    public bool justThisBottle = false;
 
     public Transform leftRotationPoint;
     public Transform rightRotationPoint;
@@ -56,36 +58,44 @@ public class BottleController : MonoBehaviour
 
         UpdateColorsOnShader();
         UpdateTopColorValues();
+
+        RecordOriginalValues();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void RecordOriginalValues()
     {
-        if(Input.GetKeyUp(KeyCode.P)  && justThisBottle == true)
+        string objName = GetComponent<BottleController>().name.ToString();
+        Debug.Log("This is " + objName);
+        Debug.Log(" Number of colors " + bottleColors.Length);
+        
+        //Keep a copy of bottle colors
+        for (int i = 0; i < numberOfColorsInBottle; i++)
         {
-            //Make sure that the top color value is accurate 
-            UpdateTopColorValues();
-            //Check if the second bottle has space and both colors are matching
-            if(bottleControllerRef.FillBottleCheck(topColor))
-            {
-                //Determine the direction of pouring
-                ChooseRotationPointAndDirection();
-
-                numberOfColorsToTransfer = Mathf.Min(numberOfTopColorLayers, 4 - bottleControllerRef.numberOfColorsInBottle);
-
-                //Update the value of the bottle color array
-                for(int i = 0; i < numberOfColorsToTransfer; i++)
-                {
-                    //check the index of the second bottle top based on the current number of colors inside it and add new colors on top of it
-                    bottleControllerRef.bottleColors[bottleControllerRef.numberOfColorsInBottle + i] = topColor;
-                }
-                //Reflect the color changes to screen through the shader graph
-                bottleControllerRef.UpdateColorsOnShader();
-            }
-
-            CalculateRotationIndex(4 - bottleControllerRef.numberOfColorsInBottle);
-            StartCoroutine(RotateBottle());
+            originalBottleColors[i] = bottleColors[i];
         }
+        originalNumberOfColorsInBottle = numberOfColorsInBottle;
+
+    }    
+    public void ResetBottleColors()
+    {
+        for (int i = 0; i < originalNumberOfColorsInBottle; i++)
+        {
+            bottleColors[i] = originalBottleColors[i];
+            //rotationValues[i] = originalRotationValues[i];
+        }
+
+        //numberOfTopColorLayers = 1;
+        numberOfColorsInBottle = originalNumberOfColorsInBottle;
+
+        bottleMaskSprite.material.SetFloat("_FillAmount", fillAmounts[numberOfColorsInBottle]);
+
+        transform.position = originalPosition;
+
+        //Reset the colors in game
+        UpdateColorsOnShader();
+        UpdateTopColorValues();
+
+        this.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public void StartColorTransfer()
