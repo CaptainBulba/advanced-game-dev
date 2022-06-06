@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 2
-  puzzleText: Find the words
+  puzzleText: There is some pattern in words. Wonder if I can figure it out
 --- !u!114 &536994955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 0
-  puzzleText: Select colors
+  puzzleText: It seems that colors are matching
 --- !u!1 &1106281385 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779580151238821983, guid: a18ec4245a4d9124e850cdfe37cb4064, type: 3}
@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 1
-  puzzleText: Put 3 or more blocks in bucket !
+  puzzleText: I cannot reach it, but I can throw to it...
 --- !u!114 &1449421349
 MonoBehaviour:
   m_ObjectHideFlags: 0
