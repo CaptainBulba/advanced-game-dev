@@ -12,6 +12,7 @@ public class GameoverController : MonoBehaviour
     void Start()
     {
         MusicController.Instance.ChangeMusic(gameoverMusic);
+        Destroy(GameTime.Instance.gameObject);
     }
 
     public void LaunchStart()
