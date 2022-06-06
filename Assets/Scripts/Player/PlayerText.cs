@@ -9,6 +9,7 @@ public class PlayerText : MonoBehaviour
 	public Text playerText;
 
 	public float showTextSpeed;
+	private bool displayText;
 	private float hideAfter;
 
 
@@ -16,10 +17,17 @@ public class PlayerText : MonoBehaviour
     {
 		hideAfter = GetComponent<PlayerMovement>().levelController.startPuzzleTime;
 		Debug.Log(hideAfter);
+		displayText = false;
 	}
+
+	public bool IsTextPlaying()
+    {
+		return displayText;
+    }
 
     public IEnumerator PlayText(string text)
 	{
+		displayText = true;
 		playerText.text = null;
 
 		textObject.SetActive(true);
@@ -33,5 +41,6 @@ public class PlayerText : MonoBehaviour
 		yield return new WaitForSeconds(hideAfter);
 
 		textObject.SetActive(false);
+		displayText = false;
 	}
 }
