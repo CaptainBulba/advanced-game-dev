@@ -11,7 +11,6 @@ public class LevelThreeController : LevelController
         MusicController.Instance.ChangeMusic(levelMusic);
 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("You are in level " + currentLevel + 1);
 
         //Get the number of puzzles from the enum
         totalLevelPuzzles = System.Enum.GetNames(typeof(LevelThreePuzzles)).Length;
