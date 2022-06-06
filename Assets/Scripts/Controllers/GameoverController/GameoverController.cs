@@ -9,7 +9,6 @@ public class GameoverController : MonoBehaviour
 
     public AudioClip gameoverMusic;
 
-    // Start is called before the first frame update
     void Start()
     {
         MusicController.Instance.ChangeMusic(gameoverMusic);

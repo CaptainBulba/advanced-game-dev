@@ -46,7 +46,6 @@ public class RotateController : MonoBehaviour
                     break;
             }
         }
-
     }
     public void CheckPuzzlePos()
     {
@@ -55,18 +54,13 @@ public class RotateController : MonoBehaviour
             //After rotation angle doesn't get exactly to zero instead to a very small value e.g. 9.659347E-06
             if (Mathf.Floor(puzzles[i].rotation.eulerAngles.z) != 0)
             {
-                Debug.Log("Tile index " + i + " angle is ");
-                Debug.Log(puzzles[i].rotation.eulerAngles.z);
                 //Will return without doing anything if at least one element is not in correct rotation
                 return;
             }
         }
-        
-        Debug.Log("All at correct position");
 
         //Exit the puzzle and return to level
         levelController.LaunchMainScreen(puzzleButton);
         inventory.AddItem(inventoryItem);
-
     }
 }

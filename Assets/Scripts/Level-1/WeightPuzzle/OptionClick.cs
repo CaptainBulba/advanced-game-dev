@@ -13,7 +13,6 @@ public class OptionClick : MonoBehaviour
 
     public GameObject[] objectPrefabs; // prefabs to be displayed in the box
 
-
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))

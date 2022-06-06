@@ -79,8 +79,6 @@ public class GuessNumber : MonoBehaviour
     {   
         if (clickedButton.GetComponentInChildren<Text>().text == correctAnswers[currentRound].ToString())
         {
-            Debug.Log("Correct answer");
-
             currentRound++;
 
             if (currentRound < maxLevel)
@@ -94,6 +92,5 @@ public class GuessNumber : MonoBehaviour
                 inventory.AddItem(inventoryItem);
             }
         }
-        else Debug.Log("Incorrect Answer");
     } 
 }
