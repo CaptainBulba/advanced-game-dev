@@ -25,6 +25,10 @@ public class RotateController : MonoBehaviour
     {
         for (int i = 0; i < puzzles.Length; i++)
         {
+            //skip this tile as it is empty
+            if (i == 12)
+                continue;
+
             int n = Random.Range(0, 4);
             switch (n)
             {
@@ -43,8 +47,6 @@ public class RotateController : MonoBehaviour
             }
         }
 
-        //manually making sure this tile is fixed as it is black in game and might confuse players
-        puzzles[12].Rotate(0, 0, 0);
     }
     public void CheckPuzzlePos()
     {
@@ -53,8 +55,8 @@ public class RotateController : MonoBehaviour
             //After rotation angle doesn't get exactly to zero instead to a very small value e.g. 9.659347E-06
             if (Mathf.Floor(puzzles[i].rotation.eulerAngles.z) != 0)
             {
+                Debug.Log("Tile index " + i + " angle is ");
                 Debug.Log(puzzles[i].rotation.eulerAngles.z);
-                Debug.Log("Tile item " + i);
                 //Will return without doing anything if at least one element is not in correct rotation
                 return;
             }
