@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Letters : MonoBehaviour
 {
-
     public bool utilized = false;
     public bool identified = false;
     public TextMesh letter;

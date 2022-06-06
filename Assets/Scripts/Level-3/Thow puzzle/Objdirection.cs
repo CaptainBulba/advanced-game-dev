@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class ObjDirection : MonoBehaviour
 {
-    //public GameObject obj;
-    //public float power;
-
     private LevelController levelController;
     private GameObject puzzleButton;
     public PrefabSettings prefabSettings;
 
     private Trigger trigger;
     public Vector2 direction;
-
 
     public GameObject sqTrigger;
     public Rigidbody2D rb;
@@ -26,15 +22,11 @@ public class ObjDirection : MonoBehaviour
 
     private void Start()
     {
-
-        
         puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
         levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
         rb = GetComponent<Rigidbody2D>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         Trakemove();
@@ -48,13 +40,8 @@ public class ObjDirection : MonoBehaviour
             Shoot();
         }
 
-        //Debug.Log("value - " + counter);
-
         checkcoutner();
         Throwobj();
-
-
-
     }
 
     void Throwobj()

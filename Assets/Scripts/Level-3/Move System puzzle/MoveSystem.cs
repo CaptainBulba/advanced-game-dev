@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class MoveSystem : MonoBehaviour
 {
-    public GameObject keycolor;
+    public GameObject keyColor;
     private bool moving;
 
     private float startPosx;
     private float startPosy;
     public static int count;
 
-    private Vector3 resetpos;
-    public bool doneornot;
-
+    private Vector3 resetPos;
+    public bool doneOrNot;
 
     void Start()
     {
-        resetpos = this.transform.position;
-
-
+        resetPos = this.transform.position;
     }
 
     void Update()
     {
-
         if (moving)
         {
             Vector3 mousePos;
@@ -32,10 +28,7 @@ public class MoveSystem : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
             this.gameObject.transform.position = new Vector3(mousePos.x - startPosx, mousePos.y - startPosy, this.gameObject.transform.position.z);
-
-              
         }
-
     }
 
     private void OnMouseDown()
@@ -56,22 +49,20 @@ public class MoveSystem : MonoBehaviour
     private void OnMouseUp()
     {
         moving = false;
-        doneornot = false;
+        doneOrNot = false;
 
-        if (Mathf.Abs(this.transform.position.x - keycolor.transform.position.x) <= 0.5 &&
-            Mathf.Abs(this.transform.position.y - keycolor.transform.position.y) <= 0.5)
+        if (Mathf.Abs(this.transform.position.x - keyColor.transform.position.x) <= 0.5 &&
+            Mathf.Abs(this.transform.position.y - keyColor.transform.position.y) <= 0.5)
         {
-            this.transform.position = new Vector3(keycolor.transform.position.x, keycolor.transform.position.y, keycolor.transform.position.z);
-            doneornot = true;
+            this.transform.position = new Vector3(keyColor.transform.position.x, keyColor.transform.position.y, keyColor.transform.position.z);
+            doneOrNot = true;
 
             count++;
-            Debug.Log("count" +count);
         }
 
         else
         {
-            this.transform.position = new Vector3(resetpos.x, resetpos.y, resetpos.z);
+            this.transform.position = new Vector3(resetPos.x, resetPos.y, resetPos.z);
         }
     }
-
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class WordSearch : MonoBehaviour {
-	
+public class WordSearch : MonoBehaviour 
+{
     public bool useWordpool; //to add .txt file
     public TextAsset wordpool; // fetch words from .txt file
     public string[] words; // array to hold words from .txt file
@@ -14,14 +14,12 @@ public class WordSearch : MonoBehaviour {
     private LevelController levelController;
     private GameObject puzzleButton;
 
-
     public GameObject tile, background, current;
     public Color defaultTint, mouseoverTint, identifiedTint;
     public bool ready = false, correct = false;
     public string selectedString = "";
 
     public List<GameObject> selected = new List<GameObject>(); //to make a list of latter that mouse hovers on
-    
     
     private List<GameObject> tiles = new List<GameObject>();
     private float sensitivity = 0.9f;
