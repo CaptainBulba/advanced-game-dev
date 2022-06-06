@@ -175,6 +175,7 @@ MonoBehaviour:
   puzzleButtons: []
   totalLevelPuzzles: 3
   startPuzzleTime: 0
+  playerText: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 322a9e87a1736c042bc23fba75807f60, type: 3}
 --- !u!114 &103808917
 MonoBehaviour:
@@ -715,6 +716,14 @@ PrefabInstance:
     - target: {fileID: 7637704729344422821, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}
       propertyPath: m_Name
       value: MusicController
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100048147952266432, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100048147952266432, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}

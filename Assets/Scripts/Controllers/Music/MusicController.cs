@@ -29,13 +29,7 @@ public class MusicController : MonoBehaviour
         audioSource.volume = maxVolume;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-            ChangeVolume();
-    }
-
-    private void ChangeVolume()
+    public void ChangeVolume()
     {
         if (soundToggle) soundVolume = 0f;
         else soundVolume = maxVolume;
