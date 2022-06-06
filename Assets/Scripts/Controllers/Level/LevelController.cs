@@ -122,8 +122,10 @@ public class LevelController : MonoBehaviour
             }
             else
             {
-                StartCoroutine(playerText.PlayText("I have not completed all challanges in this room yet."));
-                //Debug.Log("You have not completed all puzzles");
+                if (!playerText.IsTextPlaying())
+                {
+                    StartCoroutine(playerText.PlayText("I have not completed all challanges in this room yet."));
+                }
             }
         }
         else 
