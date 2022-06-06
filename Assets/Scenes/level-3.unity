@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionIndex: 3
-  puzzleText: I think I found the exit!
+  puzzleText: Finally! I think I unlocked the exit!
 --- !u!114 &1286897943
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,14 +8,15 @@ public class ObjDirection : MonoBehaviour
     private GameObject puzzleButton;
     public PrefabSettings prefabSettings;
 
-    private Trigger trigger;
-    public Vector2 direction;
+    private Bucket bucketTrigger;
+    public Vector3 direction;
+    private Vector3 mousePos;
 
     public GameObject sqTrigger;
     public Rigidbody2D rb;
 
     public GameObject brick;
-    public GameObject prefab;
+    public GameObject throwPuzzlePrefab;
     public float force;
     public int counter;
     public bool finished;
@@ -29,11 +30,14 @@ public class ObjDirection : MonoBehaviour
 
     void Update()
     {
-        Trakemove();
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 objPos = transform.position;
 
-        direction = mousePos - objPos;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+         
+        direction = mousePos - transform.position;
+
+        float rotationAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -41,12 +45,7 @@ public class ObjDirection : MonoBehaviour
         }
 
         checkcoutner();
-        Throwobj();
-    }
 
-    void Throwobj()
-    {
-        transform.right = direction;
     }
 
     void Shoot()
@@ -56,21 +55,14 @@ public class ObjDirection : MonoBehaviour
         Destroy(brickInst, 5.0f);
     }
 
-    void Trakemove()
-    {
-        Vector2 thowdir = rb.velocity;
-        float angle = Mathf.Atan2(thowdir.y, thowdir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
-
     void checkcoutner()
     {
-        trigger = sqTrigger.GetComponent<Trigger>();
+        bucketTrigger = sqTrigger.GetComponent<Bucket>();
 
-        if(trigger.counter > 3)
+        if(bucketTrigger.counter >= 3)
         {
             levelController.LaunchMainScreen(puzzleButton);
-            prefab.SetActive(false);
+            throwPuzzlePrefab.SetActive(false);
             finished = true;
         }
     }
