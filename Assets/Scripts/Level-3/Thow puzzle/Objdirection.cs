@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Objdirection : MonoBehaviour
+public class ObjDirection : MonoBehaviour
 {
     //public GameObject obj;
     //public float power;
@@ -11,7 +11,7 @@ public class Objdirection : MonoBehaviour
     private GameObject puzzleButton;
     public PrefabSettings prefabSettings;
 
-    private trigger trigger;
+    private Trigger trigger;
     public Vector2 direction;
 
 
@@ -78,7 +78,7 @@ public class Objdirection : MonoBehaviour
 
     void checkcoutner()
     {
-        trigger = sqTrigger.GetComponent<trigger>();
+        trigger = sqTrigger.GetComponent<Trigger>();
 
         if(trigger.counter > 3)
         {

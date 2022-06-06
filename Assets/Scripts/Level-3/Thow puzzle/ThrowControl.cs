@@ -8,7 +8,7 @@ public class ThrowControl : MonoBehaviour
     public GameObject bucket;
     public GameObject tobj;
     public GameObject swit;
-    private Objdirection tobjs;
+    private ObjDirection tobjs;
 
 
     public void Update()
@@ -18,7 +18,7 @@ public class ThrowControl : MonoBehaviour
 
     public void CheckStatus() 
     {
-        tobjs = tobj.GetComponent<Objdirection>();
+        tobjs = tobj.GetComponent<ObjDirection>();
 
         if (tobjs.finished == true) 
         {
