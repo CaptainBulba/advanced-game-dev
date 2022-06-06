@@ -12,9 +12,7 @@ public class MoveController : MonoBehaviour
 
     public void Start()
     {
-
         counter = MoveSystem.count;
-
 
         puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
         levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
