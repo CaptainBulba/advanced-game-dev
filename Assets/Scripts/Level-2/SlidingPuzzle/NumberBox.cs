@@ -67,7 +67,6 @@ public class NumberBox : MonoBehaviour
             isCorrectPlace = true;
         else
             isCorrectPlace = false;
-        Debug.Log("The tile current index is " + checkIndex + " The actual index is " + index);
     }
 
     public bool IsCorrectPlace() { return isCorrectPlace; }

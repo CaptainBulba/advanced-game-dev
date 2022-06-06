@@ -62,8 +62,6 @@ public class LevelController : MonoBehaviour
 
     public void LaunchMainScreen(GameObject buttonToDelete)
     {
-
-        Debug.Log("Finished the puzzle and returned to main");
         completedPuzzles++;
 
         buttonsGroup.SetActive(true);
@@ -115,7 +113,6 @@ public class LevelController : MonoBehaviour
     {
         if (actionName == GameConstants.actionNextRoom)
         {
-            Debug.Log("Completed puzzles so far " + completedPuzzles + " out of #" + totalLevelPuzzles + " in this current level");
             if (completedPuzzles >= totalLevelPuzzles)
             {
                 SceneManager.LoadScene(currentLevel + 1);
@@ -128,7 +125,5 @@ public class LevelController : MonoBehaviour
                 }
             }
         }
-        else 
-            Debug.Log("There is something wrong/missing with the button");
     }
 }
