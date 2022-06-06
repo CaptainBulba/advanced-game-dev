@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac4c0e240f7624aa9262c1a64e4327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keycolor: {fileID: 4275007483328585412}
-  doneornot: 0
+  keyColor: {fileID: 4275007483328585412}
+  doneOrNot: 0
 --- !u!1 &598703817994560996
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac4c0e240f7624aa9262c1a64e4327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keycolor: {fileID: 7133100312017069505}
-  doneornot: 0
+  keyColor: {fileID: 7133100312017069505}
+  doneOrNot: 0
 --- !u!1 &598703818379478122
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,8 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac4c0e240f7624aa9262c1a64e4327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keycolor: {fileID: 4275007481549051308}
-  doneornot: 0
+  keyColor: {fileID: 4275007481549051308}
+  doneOrNot: 0
 --- !u!1 &4035091090885991871
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4035091090885991870}
   - component: {fileID: 4035091090885991869}
-  - component: {fileID: 7739278862921651620}
+  - component: {fileID: 6040230575775112045}
   m_Layer: 5
   m_Name: MoveSystemPuzzle
   m_TagString: Untagged
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabOnCanvas: 1
---- !u!114 &7739278862921651620
+--- !u!114 &6040230575775112045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4035091090885991871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42146c639fe13346b649e32128a7010, type: 3}
+  m_Script: {fileID: 11500000, guid: f8522e2dd06c5e643ad4e6962e5de840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
