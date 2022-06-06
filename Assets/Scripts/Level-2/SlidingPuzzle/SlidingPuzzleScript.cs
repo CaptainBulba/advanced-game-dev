@@ -27,12 +27,10 @@ public class SlidingPuzzleScript : MonoBehaviour
         Init();
 
         //Prepare the game by shuffling tiles
-        Debug.Log("Shuffle operation ------- ");
         for(int i = 0; i < 5; i++)
         {
             Shuffle();
         }
-
     }
 
     private void OnEnable()
@@ -40,6 +38,10 @@ public class SlidingPuzzleScript : MonoBehaviour
         NumberBox.OnSwap += CheckWinningCondition;
     }
 
+    private void OnDisable()
+    {
+        NumberBox.OnSwap -= CheckWinningCondition;
+    }
 
     private void CheckWinningCondition()
     {
@@ -49,7 +51,7 @@ public class SlidingPuzzleScript : MonoBehaviour
             {
                 if (!boxes[i, j].IsCorrectPlace())
                 {
-                    Debug.Log("At least one tile is not in a correct position");
+                    //if at least one is not in a correct position return (exit function)
                     return;
                 }
             }
@@ -69,7 +71,7 @@ public class SlidingPuzzleScript : MonoBehaviour
             for(int x = 0; x<4; x++)
             {
                 NumberBox box = Instantiate(boxPrefab, new Vector2 (x, y), Quaternion.identity,this.transform);
-                //Instantiate()
+                
                 box.Init(x, y, n + 1, sprites[n], ClickToSwap);
                 boxes[x,y] = box;
                 n++;

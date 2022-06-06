@@ -59,6 +59,7 @@ public class BottleController : MonoBehaviour
         UpdateColorsOnShader();
         UpdateTopColorValues();
 
+        //For reset game purposes
         RecordOriginalValues();
     }
 
@@ -81,10 +82,8 @@ public class BottleController : MonoBehaviour
         for (int i = 0; i < originalNumberOfColorsInBottle; i++)
         {
             bottleColors[i] = originalBottleColors[i];
-            //rotationValues[i] = originalRotationValues[i];
         }
 
-        //numberOfTopColorLayers = 1;
         numberOfColorsInBottle = originalNumberOfColorsInBottle;
 
         bottleMaskSprite.material.SetFloat("_FillAmount", fillAmounts[numberOfColorsInBottle]);
@@ -95,6 +94,7 @@ public class BottleController : MonoBehaviour
         UpdateColorsOnShader();
         UpdateTopColorValues();
 
+        //enable bottle selections
         this.GetComponent<BoxCollider2D>().enabled = true;
     }
 
@@ -321,8 +321,6 @@ public class BottleController : MonoBehaviour
                             //All colors inside bottle are matching
                             numberOfTopColorLayers = 4;
                             
-                            
-                            
                         }
                     }
                 }
@@ -389,11 +387,8 @@ public class BottleController : MonoBehaviour
             this.GetComponent<BoxCollider2D>().enabled = false;
 
             //Trigger an event to register to the main puzzle controller
-            Debug.Log("Invoking Event from IsBottlecomplete Function");
             OnBottleComplete?.Invoke();
-
         }
-
     }
 
     public bool IsBottleEmpty()
@@ -411,7 +406,6 @@ public class BottleController : MonoBehaviour
     private void FillUp(float fillAmountToAdd)
     {
         bottleMaskSprite.material.SetFloat("_FillAmount", bottleMaskSprite.material.GetFloat("_FillAmount") + fillAmountToAdd);
-
     }
     
     private void ChooseRotationPointAndDirection()

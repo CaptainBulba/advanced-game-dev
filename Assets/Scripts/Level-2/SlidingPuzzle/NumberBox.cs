@@ -37,10 +37,9 @@ public class NumberBox : MonoBehaviour
 
         StartCoroutine(Move());
 
-        //This was replaced by the Coroutine to introduce a smooth animation to the movement of the block/tile sliding
-        //this.gameObject.transform.localPosition = new Vector2(i,j);
     }
 
+    //This is to introduce a smooth animation to the movement of the block/tile sliding
     IEnumerator Move()
     {
         //To control speed of tile movement

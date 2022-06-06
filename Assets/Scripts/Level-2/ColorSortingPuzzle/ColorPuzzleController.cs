@@ -60,7 +60,6 @@ public class ColorPuzzleController : MonoBehaviour
                 Debug.Log(hit.collider.name);
                 if (hit.collider.name == "Restart")
                 {
-                    Debug.Log("Restart section");
                     RestartPuzzle();
                 }
 
@@ -117,7 +116,6 @@ public class ColorPuzzleController : MonoBehaviour
     
     void RestartPuzzle()
     {
-        Debug.Log("Restarting puzzle ... ");
         //Reset the colors in all bottles
         foreach (BottleController bottle in bottles)
         {
@@ -140,19 +138,13 @@ public class ColorPuzzleController : MonoBehaviour
     void UpdateBottleComplete()
     {
         countCompleteBottles++;
-        Debug.Log("Color Puzzle Controller, current completed bottles " + countCompleteBottles);
+
         if (countCompleteBottles == countWinCondition)
         {
             levelController.LaunchMainScreen(puzzleButton);
         }
             
     }
-    IEnumerator WaitBeforeClosing()
-    {
 
-        yield return new WaitForEndOfFrame();
-
-
-    }
 }
 
