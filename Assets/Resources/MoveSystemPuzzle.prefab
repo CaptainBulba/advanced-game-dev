@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 598703817148083026}
   m_Layer: 0
-  m_Name: Keys (1)
+  m_Name: Keys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyColor: {fileID: 4275007483328585412}
-  doneOrNot: 0
+  done: 0
 --- !u!1 &598703817994560996
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyColor: {fileID: 7133100312017069505}
-  doneOrNot: 0
+  done: 0
 --- !u!1 &598703818379478122
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 598703818379478124}
   - component: {fileID: 598703818379478125}
   m_Layer: 0
-  m_Name: KeyBlack
+  m_Name: KeyYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyColor: {fileID: 4275007481549051308}
-  doneOrNot: 0
+  done: 0
 --- !u!1 &4035091090885991871
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ GameObject:
   - component: {fileID: 4275007481549051306}
   - component: {fileID: 4275007481549051307}
   m_Layer: 0
-  m_Name: KeyholeBlack
+  m_Name: KeyholeYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

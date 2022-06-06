@@ -12,7 +12,7 @@ public class MoveSystem : MonoBehaviour
     public static int count;
 
     private Vector3 resetPos;
-    public bool doneOrNot;
+    public bool done;
 
     void Start()
     {
@@ -48,21 +48,22 @@ public class MoveSystem : MonoBehaviour
 
     private void OnMouseUp()
     {
-        moving = false;
-        doneOrNot = false;
-
         if (Mathf.Abs(this.transform.position.x - keyColor.transform.position.x) <= 0.5 &&
             Mathf.Abs(this.transform.position.y - keyColor.transform.position.y) <= 0.5)
         {
-            this.transform.position = new Vector3(keyColor.transform.position.x, keyColor.transform.position.y, keyColor.transform.position.z);
-            doneOrNot = true;
+            this.transform.position = keyColor.transform.position;
 
-            count++;
+            if (!done)
+            {
+                count++;
+                done = true;
+            }
         }
-
         else
         {
-            this.transform.position = new Vector3(resetPos.x, resetPos.y, resetPos.z);
+            this.transform.position = resetPos;
         }
+
+        moving = false;
     }
 }
