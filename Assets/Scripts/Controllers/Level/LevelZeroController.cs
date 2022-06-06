@@ -6,14 +6,6 @@ using UnityEngine.UI;
 
 public class LevelZeroController : MonoBehaviour
 {
-    //private Vector2 startPosition;
-    //public Vector2 targetPosition;
-
-    //public float moveTime;
-    
-
-    //private float timeElapsed;
-
     public AudioClip levelMusic;
     public GameObject continueButton;
     public RectTransform storyTextRect;
@@ -23,10 +15,6 @@ public class LevelZeroController : MonoBehaviour
     private string levelOneScene = "level-1";
     private string introText;
 
-    //private bool moveText = true;
-
-
-
     void Start()
     {
         MusicController.Instance.ChangeMusic(levelMusic);
@@ -34,10 +22,7 @@ public class LevelZeroController : MonoBehaviour
         continueButton.SetActive(false);
 
         PrepareIntroText();
-
-        //continueButton.SetActive(true);
     }
-
 
     public void PrepareIntroText()
     {
@@ -45,9 +30,6 @@ public class LevelZeroController : MonoBehaviour
         introText = contentText.text;
 
         StartCoroutine(AnimateWords());
-
-        
-
     }
 
     IEnumerator AnimateWords()
