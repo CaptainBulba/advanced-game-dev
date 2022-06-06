@@ -27,10 +27,17 @@ public class WeightPuzzle : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
 
-    void Start()
+    void OnEnable()
     {
+        CleanAllBoxes();
+
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
+
+        currentLevel = 0;
+
+        correctText.SetActive(false);
+        incorrectText.SetActive(false);
 
         for (int i = 0; i < isBoxFull.Length; i++)
         {
@@ -108,7 +115,8 @@ public class WeightPuzzle : MonoBehaviour
 
         for (int i = 0; i < boxes.Length; i++)
         {
-            Destroy(boxes[i].transform.GetChild(0).gameObject);
+            if(boxes[i].transform.childCount > 0)
+                Destroy(boxes[i].transform.GetChild(0).gameObject);
             boxesSize[i] = 0;
             isBoxFull[i] = false;
         }
