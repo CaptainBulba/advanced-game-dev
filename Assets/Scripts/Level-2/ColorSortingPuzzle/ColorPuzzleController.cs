@@ -6,6 +6,7 @@ public class ColorPuzzleController : MonoBehaviour
 {
     public BottleController firstBottle;
     public BottleController secondBottle;
+    public BottleController[] bottles;
 
     const int countWinCondition = 6;
     bool currentlyTransfering = false;
@@ -17,6 +18,7 @@ public class ColorPuzzleController : MonoBehaviour
 
     private Inventory inventory;
     public GameObject inventoryItem;
+    public GameObject restart;
 
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class ColorPuzzleController : MonoBehaviour
         levelController = GameObject.Find("LevelController").GetComponent<LevelTwoController>();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
         inventory = GetComponent<PrefabSettings>().GetInventory();
+        
     }
 
     private void OnEnable()
@@ -51,8 +54,16 @@ public class ColorPuzzleController : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
+            
             if(hit.collider != null)
             {
+                Debug.Log(hit.collider.name);
+                if (hit.collider.name == "Restart")
+                {
+                    Debug.Log("Restart section");
+                    RestartPuzzle();
+                }
+
                 //check if we hit a bottle
                 if(hit.collider.GetComponent<BottleController>() != null)
                 {
@@ -104,6 +115,22 @@ public class ColorPuzzleController : MonoBehaviour
         }
     }
     
+    void RestartPuzzle()
+    {
+        Debug.Log("Restarting puzzle ... ");
+        //Reset the colors in all bottles
+        foreach (BottleController bottle in bottles)
+        {
+            bottle.ResetBottleColors();
+        }
+
+        //Reset bottle selects
+        firstBottle = null;
+        secondBottle = null;
+
+        countCompleteBottles = 0;
+
+    }
 
     void FinishColorTransfer()
     {
@@ -116,11 +143,6 @@ public class ColorPuzzleController : MonoBehaviour
         Debug.Log("Color Puzzle Controller, current completed bottles " + countCompleteBottles);
         if (countCompleteBottles == countWinCondition)
         {
-           
-            //StartCoroutine(WaitBeforeClosing());
-           
-            
-          
             levelController.LaunchMainScreen(puzzleButton);
         }
             
