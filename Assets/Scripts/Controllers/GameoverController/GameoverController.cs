@@ -13,6 +13,7 @@ public class GameoverController : MonoBehaviour
     {
         MusicController.Instance.ChangeMusic(gameoverMusic);
         Destroy(GameTime.Instance.gameObject);
+        Destroy(Inventory.Instance.gameObject);
     }
 
     public void LaunchStart()

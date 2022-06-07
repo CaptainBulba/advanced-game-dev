@@ -22,7 +22,8 @@ public class WeightPuzzle : MonoBehaviour
 
     private float currentRotation = 0; // angle of main object 
 
-    private int currentLevel = 0; // current stage of the puzzle
+    [HideInInspector]
+    public int currentLevel = 0; // current stage of the puzzle
 
     private LevelController levelController;
     private GameObject puzzleButton;

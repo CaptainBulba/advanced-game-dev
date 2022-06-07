@@ -9,7 +9,6 @@ public class RotateController : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
 
-    private Inventory inventory;
     public GameObject inventoryItem;
 
     void Start()
@@ -60,6 +59,6 @@ public class RotateController : MonoBehaviour
 
         //Exit the puzzle and return to level
         levelController.LaunchMainScreen(puzzleButton);
-        inventory.AddItem(inventoryItem);
+        Inventory.Instance.AddItem(inventoryItem);
     }
 }

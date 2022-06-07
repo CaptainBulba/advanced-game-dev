@@ -35,6 +35,8 @@ public class LevelThreeController : LevelController
             puzzles[i] = puzzle;
 
             puzzle.GetComponent<PrefabSettings>().SetButton(buttonsGroup.transform.GetChild(i).gameObject);
+
+            Inventory.Instance.DeleteItem(4);
         }
     }
 }

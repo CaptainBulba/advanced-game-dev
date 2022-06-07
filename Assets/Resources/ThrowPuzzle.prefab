@@ -376,6 +376,7 @@ MonoBehaviour:
   force: 1000
   counter: 0
   finished: 0
+  inventoryItem: {fileID: 6636870092813263348, guid: fb4c0d3c1aef9fc409e2ccddb8892377, type: 3}
 --- !u!1 &3103272635826268431
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3765191b12d213e44aa4ddee0109194f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counter: 0
 --- !u!1 &3103272636144722718
 GameObject:
   m_ObjectHideFlags: 0

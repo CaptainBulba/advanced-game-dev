@@ -16,10 +16,6 @@ public class ColorPuzzleController : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
 
-    private Inventory inventory;
-    public GameObject inventoryItem;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -138,11 +134,8 @@ public class ColorPuzzleController : MonoBehaviour
 
         if (countCompleteBottles == countWinCondition)
         {
-            inventory.AddItem(inventoryItem);
             levelController.LaunchMainScreen(puzzleButton);
         }
-            
     }
-
 }
 

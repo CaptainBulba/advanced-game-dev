@@ -21,11 +21,15 @@ public class ObjectDirection : MonoBehaviour
     public int counter;
     public bool finished;
 
+    public GameObject inventoryItem;
+
     private void Start()
     {
         puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
         levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
        
+
+
         rb = GetComponent<Rigidbody2D>();
         counter = 0;
     }
@@ -62,6 +66,7 @@ public class ObjectDirection : MonoBehaviour
         counter = Bucket.counter;
         if (counter >= 5)
         {
+            Inventory.Instance.AddItem(inventoryItem);
             levelController.LaunchMainScreen(puzzleButton);
             throwPuzzlePrefab.SetActive(false);
             finished = true;

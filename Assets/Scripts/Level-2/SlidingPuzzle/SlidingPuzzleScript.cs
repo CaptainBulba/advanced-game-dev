@@ -12,7 +12,6 @@ public class SlidingPuzzleScript : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
 
-    private Inventory inventory;
     public GameObject inventoryItem;
   
     void Start()
@@ -54,7 +53,7 @@ public class SlidingPuzzleScript : MonoBehaviour
             }
         }
 
-        inventory.AddItem(inventoryItem);
+        Inventory.Instance.AddItem(inventoryItem);
         //exit puzzle and return to level once all tiles are at their correct locations
         levelController.LaunchMainScreen(puzzleButton);
     }
