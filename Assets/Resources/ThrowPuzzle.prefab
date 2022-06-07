@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabSettings: {fileID: 3103272635826268430}
+  bucketTrigger: {fileID: 3103272635880995933}
   direction: {x: 0, y: 0, z: 0}
   sqTrigger: {fileID: 3103272635688169018}
   rb: {fileID: 5879796907149461809, guid: deaaf26885d90c444837538eba8923a9, type: 3}

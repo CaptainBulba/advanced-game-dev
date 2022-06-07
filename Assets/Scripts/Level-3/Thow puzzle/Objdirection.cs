@@ -7,8 +7,8 @@ public class ObjDirection : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
     public PrefabSettings prefabSettings;
+    public GameObject bucketTrigger;
 
-    private Bucket bucketTrigger;
     public Vector3 direction;
     private Vector3 mousePos;
 
@@ -25,8 +25,9 @@ public class ObjDirection : MonoBehaviour
     {
         puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
         levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
-        bucketTrigger = sqTrigger.GetComponent<Bucket>();
+       
         rb = GetComponent<Rigidbody2D>();
+        counter = 0;
     }
 
     void Update()
@@ -58,12 +59,13 @@ public class ObjDirection : MonoBehaviour
 
     void CheckCoutner()
     {
-        
-        if(bucketTrigger.counter >= 3)
+        counter = Bucket.counter;
+        if (counter >= 5)
         {
             levelController.LaunchMainScreen(puzzleButton);
             throwPuzzlePrefab.SetActive(false);
             finished = true;
         }
+        
     }
 }

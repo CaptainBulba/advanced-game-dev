@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bucket : MonoBehaviour
 {
-    public int counter;
+    public static int counter;
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Box"))
