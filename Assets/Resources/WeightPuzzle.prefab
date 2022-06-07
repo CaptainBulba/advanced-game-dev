@@ -1801,6 +1801,7 @@ MonoBehaviour:
   incorrectText: {fileID: 709156705682073683}
   correctText: {fileID: 3846931281165545991}
   displayResultTime: 3
+  inventoryItem: {fileID: 1566507312221322465, guid: 6f2437477c1ebce448edcce941eec5f2, type: 3}
 --- !u!114 &1414582175434725270
 MonoBehaviour:
   m_ObjectHideFlags: 0
