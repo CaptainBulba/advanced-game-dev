@@ -1236,6 +1236,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4821243594028122832, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821243594028122832, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821243594028122832, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821243594028122832, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 540
+      objectReference: {fileID: 0}
     - target: {fileID: 4821243594028122834, guid: 9844a75a7b7b82948873166f3e6a0fa6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
