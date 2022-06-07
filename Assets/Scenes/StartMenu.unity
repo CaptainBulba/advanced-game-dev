@@ -1058,9 +1058,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7637704729344422818, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637704729344422818, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 00d11aab76a38074c931b895b66a19bf, type: 3}
+      objectReference: {fileID: 8300000, guid: 66f60c4f109315e4083b9252d8187ce1, type: 3}
     - target: {fileID: 7637704729344422821, guid: a38974c873e5c954eb3396c4f1796ed0, type: 3}
       propertyPath: m_Name
       value: MusicController

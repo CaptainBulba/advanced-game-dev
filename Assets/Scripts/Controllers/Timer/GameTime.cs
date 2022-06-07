@@ -37,7 +37,6 @@ public class GameTime : MonoBehaviour
 
         if (timer <= 1)
         {
-            Destroy(gameObject);
             SceneManager.LoadScene(gameoverScene);
         }
     }
