@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjDirection : MonoBehaviour
+public class ObjectDirection : MonoBehaviour
 {
     private LevelController levelController;
     private GameObject puzzleButton;
