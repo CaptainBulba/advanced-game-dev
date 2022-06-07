@@ -42,8 +42,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void ToggleInventory()
-    { 
-
+    {
         if (invVisability) closeButton.transform.SetParent(inventory.transform);
         else closeButton.transform.SetParent(closeButton.transform.parent.parent);
 
@@ -53,14 +52,8 @@ public class Inventory : MonoBehaviour
 
     public void ToggleInventory(bool value)
     {
-        if(!value)
-        {
-            inventory.SetActive(value);
-            closeButton.SetActive(value);
-        }
-
-        if (value)
-            closeButton.SetActive(value);
+        inventory.SetActive(value);
+        closeButton.SetActive(value);
     }
 
     public bool SearchItem(int itemID)
@@ -78,7 +71,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].transform.childCount > 0 && slots[i].gameObject.transform.GetChild(0).GetComponent<Item>().itemID == itemID)
+            {
+                Debug.Log("deleted:" + slots[i].transform.GetChild(0).gameObject);
                 Destroy(slots[i].transform.GetChild(0).gameObject);
+            }
         }
     }
 }

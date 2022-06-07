@@ -13,6 +13,8 @@ public class Chest : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
 
+    public GameObject inventoryItem;
+
     void Start()
     {
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
@@ -36,13 +38,12 @@ public class Chest : MonoBehaviour
             if (int.Parse(numbers[i].text) == correctAnswer[i])
             {
                 isCorrect++;
-                Debug.Log(isCorrect);
             }
         }
 
         if (isCorrect == 3)
         {
-            Debug.Log("You win");
+            Inventory.Instance.AddItem(inventoryItem);
             levelController.LaunchMainScreen(puzzleButton);
         }
         else isCorrect = 0;

@@ -428,6 +428,7 @@ MonoBehaviour:
   - {fileID: 4157777501531183942}
   - {fileID: 4157777501363150704}
   correctAnswer: 040000000900000002000000
+  inventoryItem: {fileID: 1739375599881608016, guid: bcf3b102f030c3e4b8de705665486736, type: 3}
 --- !u!114 &-1369740342637742819
 MonoBehaviour:
   m_ObjectHideFlags: 0

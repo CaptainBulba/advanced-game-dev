@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 103808915}
   - component: {fileID: 103808916}
-  - component: {fileID: 103808917}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -178,24 +177,6 @@ MonoBehaviour:
   startPuzzleTime: 7
   playerText: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 081dd70079fdb6646aad806712ffabec, type: 3}
---- !u!114 &103808917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103808914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435aaaf9d3a718a42ad1246d01ced6a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  closeButton: {fileID: 0}
 --- !u!1 &179608124
 GameObject:
   m_ObjectHideFlags: 0
