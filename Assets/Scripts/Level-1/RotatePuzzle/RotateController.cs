@@ -16,7 +16,6 @@ public class RotateController : MonoBehaviour
     {
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
 
         ShufflePuzzle();
     }

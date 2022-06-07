@@ -16,7 +16,6 @@ public class GuessNumber : MonoBehaviour
 
     private LevelController levelController;
 
-    private Inventory inventory;
     public GameObject inventoryItem;
     
     private GameObject puzzleButton;
@@ -31,7 +30,6 @@ public class GuessNumber : MonoBehaviour
     {
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
         LoadTableText();
         LoadAnswerText();
     }
@@ -89,7 +87,7 @@ public class GuessNumber : MonoBehaviour
             else
             {
                 levelController.LaunchMainScreen(puzzleButton);
-                inventory.AddItem(inventoryItem);
+                Inventory.Instance.AddItem(inventoryItem);
             }
         }
     } 

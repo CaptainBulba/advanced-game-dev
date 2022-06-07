@@ -26,8 +26,6 @@ public class ColorPuzzleController : MonoBehaviour
     {
         levelController = GameObject.Find("LevelController").GetComponent<LevelTwoController>();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
-        
     }
 
     private void OnEnable()

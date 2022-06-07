@@ -26,7 +26,6 @@ public class WeightPuzzle : MonoBehaviour
 
     private LevelController levelController;
     private GameObject puzzleButton;
-    private Inventory inventory;
     public GameObject inventoryItem;
 
 
@@ -36,7 +35,6 @@ public class WeightPuzzle : MonoBehaviour
 
         levelController = GetComponent<PrefabSettings>().GetLevelController();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
 
         currentLevel = 0;
 
@@ -180,7 +178,7 @@ public class WeightPuzzle : MonoBehaviour
 
         if (currentLevel == rightWeight.Length)
         {
-            inventory.AddItem(inventoryItem);
+            Inventory.Instance.AddItem(inventoryItem);
             levelController.LaunchMainScreen(puzzleButton);
         }
         else

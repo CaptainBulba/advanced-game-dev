@@ -14,11 +14,6 @@ public class PrefabSettings : MonoBehaviour
         return GameObject.Find("LevelController").GetComponent<LevelController>();
     }
 
-    public Inventory GetInventory()
-    {
-        return GameObject.Find("LevelController").GetComponent<Inventory>();
-    }
-
     public GameObject GetButton()
     {
         return puzzleButton;

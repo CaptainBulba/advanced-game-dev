@@ -28,7 +28,6 @@ public class LevelController : MonoBehaviour
 
     public float startPuzzleTime;
 
-    private Inventory inventory;
     private PlayerMovement playerMovement;
 
     [HideInInspector]
@@ -38,7 +37,6 @@ public class LevelController : MonoBehaviour
 
     void OnEnable()
     {
-        inventory = GetComponent<Inventory>();
         playerMovement = character.GetComponent<PlayerMovement>();
         playerText = character.GetComponent<PlayerText>();
     }
@@ -55,7 +53,7 @@ public class LevelController : MonoBehaviour
             puzzles[i].SetActive(false);
         }
 
-        inventory.ToggleInventory(true);
+        Inventory.Instance.ToggleInventory(true);
 
         character.SetActive(true);
     }
@@ -72,7 +70,7 @@ public class LevelController : MonoBehaviour
             puzzles[i].SetActive(false);
         }
 
-        inventory.ToggleInventory(true);
+        Inventory.Instance.ToggleInventory(true);
 
         Destroy(buttonToDelete);
 
@@ -85,7 +83,7 @@ public class LevelController : MonoBehaviour
 
         buttonsGroup.SetActive(false);
 
-        inventory.ToggleInventory(false);
+        Inventory.Instance.ToggleInventory(false);
 
         //We can instead also may be change the opacity
         //background.SetActive(false); 

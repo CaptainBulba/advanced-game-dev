@@ -12,16 +12,12 @@ public class SlidingPuzzleScript : MonoBehaviour
     private LevelController levelController;
     private GameObject puzzleButton;
 
-    private Inventory inventory;
     public GameObject inventoryItem;
-    
-
-    // Start is called before the first frame update
+  
     void Start()
     {
         levelController = GameObject.Find("LevelController").GetComponent<LevelTwoController>();
         puzzleButton = GetComponent<PrefabSettings>().GetButton();
-        inventory = GetComponent<PrefabSettings>().GetInventory();
 
         //Initilize the board
         Init();
