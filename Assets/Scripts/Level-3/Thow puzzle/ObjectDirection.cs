@@ -27,7 +27,7 @@ public class ObjectDirection : MonoBehaviour
     {
         puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
         levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
-       
+        Bucket.counter = 0;
 
 
         rb = GetComponent<Rigidbody2D>();

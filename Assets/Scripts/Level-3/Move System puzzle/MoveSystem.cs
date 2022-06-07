@@ -16,6 +16,7 @@ public class MoveSystem : MonoBehaviour
 
     void Start()
     {
+        count = 0;
         resetPos = this.transform.position;
     }
 
