@@ -25,6 +25,7 @@ public class ObjDirection : MonoBehaviour
     {
         puzzleButton = prefabSettings.GetComponent<PrefabSettings>().GetButton();
         levelController = prefabSettings.GetComponent<PrefabSettings>().GetLevelController();
+        bucketTrigger = sqTrigger.GetComponent<Bucket>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -44,7 +45,7 @@ public class ObjDirection : MonoBehaviour
             Shoot();
         }
 
-        checkcoutner();
+        CheckCoutner();
 
     }
 
@@ -55,10 +56,9 @@ public class ObjDirection : MonoBehaviour
         Destroy(brickInst, 5.0f);
     }
 
-    void checkcoutner()
+    void CheckCoutner()
     {
-        bucketTrigger = sqTrigger.GetComponent<Bucket>();
-
+        
         if(bucketTrigger.counter >= 3)
         {
             levelController.LaunchMainScreen(puzzleButton);
