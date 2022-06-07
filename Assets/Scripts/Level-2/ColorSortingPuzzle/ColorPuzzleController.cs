@@ -18,7 +18,6 @@ public class ColorPuzzleController : MonoBehaviour
 
     private Inventory inventory;
     public GameObject inventoryItem;
-    public GameObject restart;
 
 
     // Start is called before the first frame update
@@ -56,7 +55,7 @@ public class ColorPuzzleController : MonoBehaviour
             if(hit.collider != null)
             {
                 Debug.Log(hit.collider.name);
-                if (hit.collider.name == "Restart")
+                if (hit.collider.name == "RestartButton")
                 {
                     RestartPuzzle();
                 }
@@ -139,6 +138,7 @@ public class ColorPuzzleController : MonoBehaviour
 
         if (countCompleteBottles == countWinCondition)
         {
+            inventory.AddItem(inventoryItem);
             levelController.LaunchMainScreen(puzzleButton);
         }
             

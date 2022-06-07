@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 7978657065826066856}
   - component: {fileID: 6009668515591251326}
   m_Layer: 0
-  m_Name: Restart
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,8 +293,7 @@ MonoBehaviour:
   - {fileID: 4862207252674547786}
   - {fileID: 4862207251912661131}
   countCompleteBottles: 0
-  inventoryItem: {fileID: 0}
-  restart: {fileID: 0}
+  inventoryItem: {fileID: 1566507312221322465, guid: 6f2437477c1ebce448edcce941eec5f2, type: 3}
 --- !u!1 &4862207251738789582
 GameObject:
   m_ObjectHideFlags: 0
